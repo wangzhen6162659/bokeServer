@@ -1,0 +1,72 @@
+server:
+  port: 10014
+  hostname: 127.0.0.1
+boke:
+  hostname:
+    eureka: 127.0.0.1
+    admin: 127.0.0.1
+  port:
+    eureka: 8761
+    admin: 10001
+  context-path:
+    eureka: /boke-eureka
+  feign:
+    auth-server: admin-server
+  demo:
+    index-url: /module/index
+
+devtools:
+    restart:
+      enabled: true #�Ȳ�����Ч
+      #����������Ŀ¼
+      additional-paths: src/main/java
+      exclude: templates/** #classpathĿ¼�µ�WEB-INF�ļ��������޸Ĳ�����
+eureka:
+  instance:
+    status-page-url: http://${server.hostname}:${server.port}/module/index
+  client:
+    serviceUrl:
+      defaultZone: http://${boke.hostname.eureka}:${boke.port.eureka}${boke.context-path.eureka}/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+    #支持压缩的mime types
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+hystrix:
+  config:
+    stream:
+      maxConcurrentConnections: 50
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+  propagate:
+    request-attribute:
+      enabled: true
+
+ribbon:
+  eureka:
+    enabled: true
+  listOfServers: http://${boke.hostname.admin}:${boke.port.admin}
+
+spring:
+  application:
+    name: boke-webApp
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      suffix: .html
+  freemarker:
+      template-loader-path: classpath:/templates/module
+      cache: false
+      charset: UTF-8
+      suffix: .html

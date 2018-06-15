@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="admin-repository" />
+        <module name="admin-server" />
+        <module name="adminapi" />
+        <module name="adminapiimpl" />
+        <module name="demo" />
+        <module name="eurka" />
+        <module name="gate" />
+        <module name="gxqpt-api-commons" />
+        <module name="gxqpt-commons" />
+        <module name="hengyun-gxqpt-core" />
+        <module name="hengyun-gxqpt-util" />
+        <module name="server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="admin-repository" target="1.8" />
+      <module name="admin-server" target="1.8" />
+      <module name="adminapi" target="1.8" />
+      <module name="adminapiimpl" target="1.8" />
+      <module name="backend" target="1.8" />
+      <module name="demo" target="1.7" />
+      <module name="eurka" target="1.7" />
+      <module name="gate" target="1.7" />
+      <module name="gxqpt-api-commons" target="1.8" />
+      <module name="gxqpt-commons" target="1.8" />
+      <module name="gxqpt-commons-build" target="1.8" />
+      <module name="gxqpt-eureka" target="1.8" />
+      <module name="gxqpt-gate" target="1.8" />
+      <module name="gxqpt-gate-ratelimit" target="1.8" />
+      <module name="gxqpt-gate-server" target="1.8" />
+      <module name="gxqpt-monitor" target="1.8" />
+      <module name="gxqpt-services" target="1.8" />
+      <module name="gxqpt-zipkin" target="1.8" />
+      <module name="hengyun-gxqpt-build" target="1.8" />
+      <module name="hengyun-gxqpt-core" target="1.8" />
+      <module name="hengyun-gxqpt-util" target="1.8" />
+      <module name="server" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+com\admin\utils\datasource\DataSourceProperties.class
+com\admin\config\dozer\DozerAutoConfiguration.class
+com\admin\Swagger2.class
+com\admin\Swagger2$Swagger2Properties.class
+com\admin\config\datasource\AdminAutoConfiguration.class
+com\admin\config\AdminConfiguration.class
+com\admin\config\dozer\DozerConfigurationProperties.class
+com\admin\AdminServiceApplication.class
+com\admin\config\datasource\AdminAutoConfiguration$CenterDataSourceProperties.class
+com\admin\utils\datasource\DataSourceFactory.class

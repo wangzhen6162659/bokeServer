@@ -1,0 +1,8 @@
+com\hengyunsoft\platform\commons\hystrix\HystrixRequestAttributeProperties.class
+com\hengyunsoft\platform\commons\utils\TreeNode.class
+com\hengyunsoft\platform\commons\config\FeignConfiguration.class
+com\hengyunsoft\platform\commons\hystrix\HystrixRequestAttributeAutoConfiguration.class
+com\hengyunsoft\platform\commons\interceptor\FeignAddHeaderRequestInterceptor.class
+com\hengyunsoft\platform\commons\hystrix\RequestAttributeHystrixConcurrencyStrategy.class
+com\hengyunsoft\platform\commons\hystrix\RequestAttributeHystrixConcurrencyStrategy$WrappedCallable.class
+com\hengyunsoft\platform\commons\utils\TreeUtil.class

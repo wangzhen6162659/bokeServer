@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.hengyunsoft</groupId>
+        <artifactId>hengyun-boot-dependencies</artifactId>
+        <version>1.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.backend</groupId>
+    <artifactId>backend</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>admin</module>
+        <module>gate</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.backend</groupId>
+                <artifactId>admin-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hengyunsoft.gxqpt</groupId>
+                <artifactId>gxqpt-commons</artifactId>
+                <version>1.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hengyunsoft</groupId>
+                <artifactId>hengyun-core</artifactId>
+                <version>2.0.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

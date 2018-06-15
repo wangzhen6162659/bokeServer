@@ -1,0 +1,54 @@
+server:
+  port: 10001     #指定服务端口
+  context-path:
+#  undertow:
+#      io-threads: 4 # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
+#      worker-threads: 80  # 阻塞任务线程池, 当执行类似servlet请求阻塞操作, undertow会从这个线程池中取得线程,它的值设置取决于系统的负载
+#      buffer-size: 1024  # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理 , 每块buffer的空间大小,越小的空间被利用越充分
+#      buffers-per-region: 1024  # 每个区分配的buffer数量 , 所以pool的大小是buffer-size * buffers-per-region
+#      direct-buffers: true  # 是否分配的直接内存
+spring:
+  application:
+    name: admin-server
+boke:
+  port:
+    eureka: 8761
+    nginx: 10001
+    admin: ${server.port}
+    gate: 9999
+  hostname:
+    eureka: 127.0.0.1
+    admin: 127.0.0.1
+    gate: 127.0.0.1
+  context-path:
+    eureka: /boke-eureka
+    admin: ${server.context-path}
+    gate: /api
+
+  mysql:
+    admin:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/boke_main
+      username: root
+      password:
+
+eureka:
+  instance:
+    status-page-url: http://${boke.hostname.gate}:${boke.port.gate}${boke.context-path.gate}/admin${server.context-path}/swagger-ui.html
+    preferIpAddress: true
+    ip-address: ${boke.hostname.admin}
+    instance-id: ${boke.hostname.admin}:${server.port}${server.context-path}
+  client:
+    serviceUrl:
+      defaultZone: http://${boke.hostname.eureka}:${boke.port.eureka}${boke.context-path.eureka}/eureka/
+
+swagger2:
+  admin-map:
+    title: 权限服务
+    description: 博客个人权限
+    base-path: ${boke.context-path.gate}/admin
+    impl-package: com.admin.user.impl
+  contact-name: 中科恒运
+  contact-url: http://www.hengyunsoft.com/
+  contact-email: zkhy@hengyunsoft.com
+  host: ${boke.hostname.eureka}:${boke.port.nginx}

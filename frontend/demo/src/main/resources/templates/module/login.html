@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../static/js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    请输入id:<input id="acount"/>
+    <button onclick="login()">确认</button>
+<script>
+    function login() {
+        var acount = $("#acount").val();
+        location.href = '/login/validate?id='+acount;
+    }
+</script>
+</body>
+</html>

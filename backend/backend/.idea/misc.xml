@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/admin-server/pom.xml" />
+        <option value="$PROJECT_DIR$/admin-repository/pom.xml" />
+        <option value="$PROJECT_DIR$/admin-api-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/admin-api/pom.xml" />
+        <option value="$PROJECT_DIR$/../../frontend/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../../server/pom.xml" />
+        <option value="$PROJECT_DIR$/../../commons/pom.xml" />
+        <option value="$PROJECT_DIR$/../../hengyun-commons/pom.xml" />
+        <option value="$PROJECT_DIR$/gate/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/gxqpt-gate/gxqpt-gate-ratelimit/pom.xml" />
+        <option value="$PROJECT_DIR$/gxqpt-gate/pom.xml" />
+        <option value="E:/workspace/workspacefirst/codeBySC2/commons/gxqpt-commons/pom.xml" />
+        <option value="E:/workspace/workspacefirst/codeBySC2/commons/pom.xml" />
+        <option value="E:/workspace/workspacefirst/codeBySC2/services/gxqpt-eureka/pom.xml" />
+        <option value="E:/workspace/workspacefirst/codeBySC2/services/gxqpt-monitor/pom.xml" />
+        <option value="E:/workspace/workspacefirst/codeBySC2/services/gxqpt-zipkin/pom.xml" />
+        <option value="E:/workspace/workspacefirst/codeBySC2/services/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

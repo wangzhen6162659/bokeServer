@@ -1,0 +1,25 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: gate-server
+zuul:
+  prefix: /api
+  routes:
+    admin:
+      path: /admin/**
+      url: http://localhost:10001/
+boke:
+  hostname:
+    eureka: 127.0.0.1
+    gate: 127.0.0.1
+  context-path:
+    eureka: /boke-eureka
+    gate: /api
+  port:
+    eureka: 8761
+    gate: 10002
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${boke.hostname.eureka}:${boke.port.eureka}${boke.context-path.eureka}/eureka/
