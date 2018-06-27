@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/backend/backend" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/admin/admin-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/admin/admin-api-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/admin/admin-repository" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/admin/admin-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/file" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/file/file-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/file/file-api-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/file/file-repository" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/file/file-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend/backend/gate" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/gxqpt-api-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/commons/gxqpt-commons" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server/eurka" charset="UTF-8" />
+  </component>
+</project>

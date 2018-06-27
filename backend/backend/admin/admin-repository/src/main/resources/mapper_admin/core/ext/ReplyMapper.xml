@@ -7,8 +7,8 @@
     -->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="p_id" jdbcType="BIGINT" property="pId" />
-    <result column="u_id" jdbcType="BIGINT" property="uId" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="fabulous" jdbcType="INTEGER" property="fabulous" />
     <result column="create_user" jdbcType="BIGINT" property="createUser" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -17,15 +17,28 @@
     <result column="article_id" jdbcType="BIGINT" property="articleId" />
     <result column="photo" jdbcType="VARCHAR" property="photo" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="reply_id" jdbcType="BIGINT" property="replyId" />
+    <result column="reply_name" jdbcType="VARCHAR" property="replyName" />
   </resultMap>
 <select id="findReply" parameterType="Long" resultMap="ReplyAndUserMap">
     SELECT
       u_reply.*, `user`.photo,
-      `user`.nickname
+      `user`.nickname,user_reply.id reply_id,user_reply.nickname reply_name
+      FROM
+          u_reply
+      JOIN u_article ON u_reply.article_id = u_article.id
+      AND u_article.id = 1
+      JOIN `user` ON u_reply.user_id = `user`.id
+      LEFT JOIN `user` user_reply on user_reply.id = u_reply.reply_id
+      ORDER BY u_reply.create_time
+</select>
+<select id="getReply" parameterType="Long" resultMap="ReplyAndUserMap">
+  SELECT
+  u_reply.*, `user`.photo,
+  `user`.nickname,user_reply.id reply_id,user_reply.nickname reply_name
   FROM
-      u_reply
-  JOIN u_article ON u_reply.article_id = u_article.id
-  AND u_article.id = #{id,jdbcType=BIGINT}
-  JOIN `user` ON u_reply.u_id = `user`.id
+  u_reply
+  JOIN `user` ON u_reply.user_id = `user`.id AND u_reply.id=#{id}
+  LEFT JOIN `user` user_reply on user_reply.id = u_reply.reply_id
 </select>
 </mapper>

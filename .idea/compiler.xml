@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="admin-api" />
+        <module name="admin-api-impl" />
+        <module name="admin-repository" />
+        <module name="admin-server" />
+        <module name="eureka-service" />
+        <module name="file-api" />
+        <module name="file-api-impl" />
+        <module name="file-repository" />
+        <module name="file-server" />
+        <module name="gate" />
+        <module name="gxqpt-api-commons" />
+        <module name="gxqpt-commons" />
+        <module name="server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="admin-api" target="1.8" />
+      <module name="admin-api-impl" target="1.8" />
+      <module name="admin-repository" target="1.8" />
+      <module name="admin-server" target="1.8" />
+      <module name="backend" target="1.8" />
+      <module name="eureka-service" target="1.7" />
+      <module name="file" target="1.8" />
+      <module name="file-api" target="1.8" />
+      <module name="file-api-impl" target="1.8" />
+      <module name="file-repository" target="1.8" />
+      <module name="file-server" target="1.8" />
+      <module name="gate" target="1.7" />
+      <module name="gxqpt-api-commons" target="1.8" />
+      <module name="gxqpt-commons" target="1.8" />
+      <module name="gxqpt-commons-build" target="1.8" />
+      <module name="server" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

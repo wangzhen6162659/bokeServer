@@ -7,4 +7,6 @@ import lombok.Data;
 public class ReplyAndUserDO extends Reply{
     private String photo;
     private String nickname;
+    private Long replyId;
+    private String replyName;
 }

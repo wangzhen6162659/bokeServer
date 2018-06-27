@@ -9,6 +9,9 @@ zuul:
     admin:
       path: /admin/**
       url: http://localhost:10001/
+    file:
+      path: /file/**
+      url: http://localhost:10002/
 boke:
   hostname:
     eureka: 127.0.0.1

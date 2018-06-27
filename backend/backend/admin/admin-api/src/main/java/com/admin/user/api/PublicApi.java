@@ -9,4 +9,7 @@ import java.text.ParseException;
 public interface PublicApi {
     @RequestMapping(value = "/public/getBingDayPic",method = RequestMethod.GET)
     Object getBingDayPic() throws MalformedURLException, ParseException;
+
+    @RequestMapping(value = "/public/getBrushTicket",method = RequestMethod.GET)
+    Object getBrushTicket() throws MalformedURLException;
 }

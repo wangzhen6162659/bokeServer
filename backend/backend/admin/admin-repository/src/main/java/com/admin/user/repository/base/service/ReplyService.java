@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface ReplyService extends BaseService<Long,Reply,ReplyExample>{
     List findReply(Long id);
+
+    Object getReply(Long id);
 }

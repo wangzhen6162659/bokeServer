@@ -14,6 +14,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>admin</module>
+        <module>file</module>
         <module>gate</module>
     </modules>
 
@@ -22,6 +23,11 @@
             <dependency>
                 <groupId>com.backend</groupId>
                 <artifactId>admin-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.backend</groupId>
+                <artifactId>file-api</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>

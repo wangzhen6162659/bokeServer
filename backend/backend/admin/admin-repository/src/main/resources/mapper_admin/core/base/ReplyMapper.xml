@@ -7,14 +7,15 @@
     -->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="p_id" jdbcType="BIGINT" property="pId" />
-    <result column="u_id" jdbcType="BIGINT" property="uId" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="fabulous" jdbcType="INTEGER" property="fabulous" />
     <result column="create_user" jdbcType="BIGINT" property="createUser" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_user" jdbcType="BIGINT" property="updateUser" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="reply_id" jdbcType="BIGINT" property="replyId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -84,8 +85,8 @@
     <!--
     @mbggenerated
     -->
-    id, content, p_id, u_id, fabulous, create_user, create_time, update_user, update_time, 
-    article_id
+    id, content, parent_id, user_id, fabulous, create_user, create_time, update_user, 
+    update_time, article_id, reply_id
   </sql>
   <select id="selectByExample" parameterType="com.admin.user.repository.base.example.ReplyExample" resultMap="BaseResultMap">
     <!--
@@ -233,25 +234,25 @@
     <!--
     @mbggenerated
     -->
-    insert into u_reply (id, content, p_id, 
-      u_id, fabulous, create_user, 
+    insert into u_reply (id, content, parent_id, 
+      user_id, fabulous, create_user, 
       create_time, update_user, update_time, 
-      article_id)
-    values (#{id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, #{pId,jdbcType=BIGINT}, 
-      #{uId,jdbcType=BIGINT}, #{fabulous,jdbcType=INTEGER}, #{createUser,jdbcType=BIGINT}, 
+      article_id, reply_id)
+    values (#{id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, #{parentId,jdbcType=BIGINT}, 
+      #{userId,jdbcType=BIGINT}, #{fabulous,jdbcType=INTEGER}, #{createUser,jdbcType=BIGINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{articleId,jdbcType=BIGINT})
+      #{articleId,jdbcType=BIGINT}, #{replyId,jdbcType=BIGINT})
   </insert>
   <insert id="batchInsert" parameterType="java.util.List">
     <!--
     @mbggenerated
     -->
-    insert into u_reply (id, content, p_id, u_id, fabulous, create_user, create_time, update_user, update_time, article_id ) values 
+    insert into u_reply (id, content, parent_id, user_id, fabulous, create_user, create_time, update_user, update_time, article_id, reply_id ) values 
     <foreach collection="list" index="index" item="item" separator=",">
-      (#{item.id,jdbcType=BIGINT}, #{item.content,jdbcType=VARCHAR}, #{item.pId,jdbcType=BIGINT}, 
-        #{item.uId,jdbcType=BIGINT}, #{item.fabulous,jdbcType=INTEGER}, #{item.createUser,jdbcType=BIGINT}, 
+      (#{item.id,jdbcType=BIGINT}, #{item.content,jdbcType=VARCHAR}, #{item.parentId,jdbcType=BIGINT}, 
+        #{item.userId,jdbcType=BIGINT}, #{item.fabulous,jdbcType=INTEGER}, #{item.createUser,jdbcType=BIGINT}, 
         #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateUser,jdbcType=BIGINT}, #{item.updateTime,jdbcType=TIMESTAMP}, 
-        #{item.articleId,jdbcType=BIGINT})
+        #{item.articleId,jdbcType=BIGINT}, #{item.replyId,jdbcType=BIGINT})
     </foreach>
   </insert>
   <insert id="insertSelective" parameterType="com.admin.user.entity.po.Reply">
@@ -266,11 +267,11 @@
       <if test="content != null">
         content,
       </if>
-      <if test="pId != null">
-        p_id,
+      <if test="parentId != null">
+        parent_id,
       </if>
-      <if test="uId != null">
-        u_id,
+      <if test="userId != null">
+        user_id,
       </if>
       <if test="fabulous != null">
         fabulous,
@@ -290,6 +291,9 @@
       <if test="articleId != null">
         article_id,
       </if>
+      <if test="replyId != null">
+        reply_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -298,11 +302,11 @@
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
       </if>
-      <if test="pId != null">
-        #{pId,jdbcType=BIGINT},
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
       </if>
-      <if test="uId != null">
-        #{uId,jdbcType=BIGINT},
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
       </if>
       <if test="fabulous != null">
         #{fabulous,jdbcType=INTEGER},
@@ -321,6 +325,9 @@
       </if>
       <if test="articleId != null">
         #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="replyId != null">
+        #{replyId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -345,11 +352,11 @@
       <if test="record.content != null">
         content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.pId != null">
-        p_id = #{record.pId,jdbcType=BIGINT},
+      <if test="record.parentId != null">
+        parent_id = #{record.parentId,jdbcType=BIGINT},
       </if>
-      <if test="record.uId != null">
-        u_id = #{record.uId,jdbcType=BIGINT},
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
       </if>
       <if test="record.fabulous != null">
         fabulous = #{record.fabulous,jdbcType=INTEGER},
@@ -369,6 +376,9 @@
       <if test="record.articleId != null">
         article_id = #{record.articleId,jdbcType=BIGINT},
       </if>
+      <if test="record.replyId != null">
+        reply_id = #{record.replyId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -381,14 +391,15 @@
     update u_reply
     set id = #{record.id,jdbcType=BIGINT},
       content = #{record.content,jdbcType=VARCHAR},
-      p_id = #{record.pId,jdbcType=BIGINT},
-      u_id = #{record.uId,jdbcType=BIGINT},
+      parent_id = #{record.parentId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
       fabulous = #{record.fabulous,jdbcType=INTEGER},
       create_user = #{record.createUser,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_user = #{record.updateUser,jdbcType=BIGINT},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      article_id = #{record.articleId,jdbcType=BIGINT}
+      article_id = #{record.articleId,jdbcType=BIGINT},
+      reply_id = #{record.replyId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -402,11 +413,11 @@
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="pId != null">
-        p_id = #{pId,jdbcType=BIGINT},
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
       </if>
-      <if test="uId != null">
-        u_id = #{uId,jdbcType=BIGINT},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="fabulous != null">
         fabulous = #{fabulous,jdbcType=INTEGER},
@@ -425,6 +436,9 @@
       </if>
       <if test="articleId != null">
         article_id = #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="replyId != null">
+        reply_id = #{replyId,jdbcType=BIGINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -438,11 +452,11 @@
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="pId != null">
-        p_id = #{pId,jdbcType=BIGINT},
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
       </if>
-      <if test="uId != null">
-        u_id = #{uId,jdbcType=BIGINT},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
       <if test="fabulous != null">
         fabulous = #{fabulous,jdbcType=INTEGER},
@@ -462,6 +476,9 @@
       <if test="articleId != null">
         article_id = #{articleId,jdbcType=BIGINT},
       </if>
+      <if test="replyId != null">
+        reply_id = #{replyId,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -471,14 +488,15 @@
     -->
     update u_reply
     set content = #{content,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=BIGINT},
-      u_id = #{uId,jdbcType=BIGINT},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
       fabulous = #{fabulous,jdbcType=INTEGER},
       create_user = #{createUser,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_user = #{updateUser,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      article_id = #{articleId,jdbcType=BIGINT}
+      article_id = #{articleId,jdbcType=BIGINT},
+      reply_id = #{replyId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByAppIdAndId" parameterType="com.admin.user.entity.po.Reply">
@@ -487,14 +505,15 @@
     -->
     update u_reply
     set content = #{content,jdbcType=VARCHAR},
-      p_id = #{pId,jdbcType=BIGINT},
-      u_id = #{uId,jdbcType=BIGINT},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
       fabulous = #{fabulous,jdbcType=INTEGER},
       create_user = #{createUser,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_user = #{updateUser,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      article_id = #{articleId,jdbcType=BIGINT}
+      article_id = #{articleId,jdbcType=BIGINT},
+      reply_id = #{replyId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

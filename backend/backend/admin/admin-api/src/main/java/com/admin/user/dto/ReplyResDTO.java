@@ -1,15 +1,21 @@
 package com.admin.user.dto;
 
-import com.admin.user.content.TreeNode;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 @Data
-public class ReplyResDTO extends TreeNode{
+public class ReplyResDTO{
+
+    private Long parentId;
+
+    private Long userId;
 
     private String content;
-
-    private Long uId;
 
     private Integer fabulous;
 
@@ -31,6 +37,8 @@ public class ReplyResDTO extends TreeNode{
      *
      * @mbggenerated
      */
+    @DateTimeFormat(pattern="MM-dd HH:mm")
+    @JsonFormat(pattern="MM-dd HH:mm",timezone = "GMT+8")
     private Date createTime;
 
     /**
@@ -46,4 +54,11 @@ public class ReplyResDTO extends TreeNode{
      * @mbggenerated
      */
     private Date updateTime;
+
+
+    private Long replyId;
+    private String replyName;
+    private Long id;
+    private Boolean activeTag = false;
+    private List children = new ArrayList<>();
 }

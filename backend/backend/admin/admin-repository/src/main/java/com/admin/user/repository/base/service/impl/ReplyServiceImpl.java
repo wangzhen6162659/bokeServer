@@ -25,4 +25,9 @@ public class ReplyServiceImpl extends BaseServiceImpl<Long,Reply,ReplyExample> i
     public List findReply(Long id) {
         return mapper.findReply(id);
     }
+
+    @Override
+    public Object getReply(Long id) {
+        return mapper.getReply(id);
+    }
 }

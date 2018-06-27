@@ -144,123 +144,123 @@ public class ReplyExample extends com.hengyunsoft.db.example.BaseExample<ReplyEx
             return (Criteria) this;
         }
 
-        public Criteria andPIdIsNull() {
-            addCriterion("p_id is null");
+        public Criteria andParentIdIsNull() {
+            addCriterion("parent_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andPIdIsNotNull() {
-            addCriterion("p_id is not null");
+        public Criteria andParentIdIsNotNull() {
+            addCriterion("parent_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPIdEqualTo(Long value) {
-            addCriterion("p_id =", value, "pId");
+        public Criteria andParentIdEqualTo(Long value) {
+            addCriterion("parent_id =", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdNotEqualTo(Long value) {
-            addCriterion("p_id <>", value, "pId");
+        public Criteria andParentIdNotEqualTo(Long value) {
+            addCriterion("parent_id <>", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdGreaterThan(Long value) {
-            addCriterion("p_id >", value, "pId");
+        public Criteria andParentIdGreaterThan(Long value) {
+            addCriterion("parent_id >", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("p_id >=", value, "pId");
+        public Criteria andParentIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("parent_id >=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdLessThan(Long value) {
-            addCriterion("p_id <", value, "pId");
+        public Criteria andParentIdLessThan(Long value) {
+            addCriterion("parent_id <", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdLessThanOrEqualTo(Long value) {
-            addCriterion("p_id <=", value, "pId");
+        public Criteria andParentIdLessThanOrEqualTo(Long value) {
+            addCriterion("parent_id <=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdIn(java.util.List<java.lang.Long> values) {
-            addCriterion("p_id in", values, "pId");
+        public Criteria andParentIdIn(java.util.List<java.lang.Long> values) {
+            addCriterion("parent_id in", values, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdNotIn(java.util.List<java.lang.Long> values) {
-            addCriterion("p_id not in", values, "pId");
+        public Criteria andParentIdNotIn(java.util.List<java.lang.Long> values) {
+            addCriterion("parent_id not in", values, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdBetween(Long value1, Long value2) {
-            addCriterion("p_id between", value1, value2, "pId");
+        public Criteria andParentIdBetween(Long value1, Long value2) {
+            addCriterion("parent_id between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andPIdNotBetween(Long value1, Long value2) {
-            addCriterion("p_id not between", value1, value2, "pId");
+        public Criteria andParentIdNotBetween(Long value1, Long value2) {
+            addCriterion("parent_id not between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdIsNull() {
-            addCriterion("u_id is null");
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andUIdIsNotNull() {
-            addCriterion("u_id is not null");
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUIdEqualTo(Long value) {
-            addCriterion("u_id =", value, "uId");
+        public Criteria andUserIdEqualTo(Long value) {
+            addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdNotEqualTo(Long value) {
-            addCriterion("u_id <>", value, "uId");
+        public Criteria andUserIdNotEqualTo(Long value) {
+            addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdGreaterThan(Long value) {
-            addCriterion("u_id >", value, "uId");
+        public Criteria andUserIdGreaterThan(Long value) {
+            addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("u_id >=", value, "uId");
+        public Criteria andUserIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdLessThan(Long value) {
-            addCriterion("u_id <", value, "uId");
+        public Criteria andUserIdLessThan(Long value) {
+            addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdLessThanOrEqualTo(Long value) {
-            addCriterion("u_id <=", value, "uId");
+        public Criteria andUserIdLessThanOrEqualTo(Long value) {
+            addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdIn(java.util.List<java.lang.Long> values) {
-            addCriterion("u_id in", values, "uId");
+        public Criteria andUserIdIn(java.util.List<java.lang.Long> values) {
+            addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdNotIn(java.util.List<java.lang.Long> values) {
-            addCriterion("u_id not in", values, "uId");
+        public Criteria andUserIdNotIn(java.util.List<java.lang.Long> values) {
+            addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdBetween(Long value1, Long value2) {
-            addCriterion("u_id between", value1, value2, "uId");
+        public Criteria andUserIdBetween(Long value1, Long value2) {
+            addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andUIdNotBetween(Long value1, Long value2) {
-            addCriterion("u_id not between", value1, value2, "uId");
+        public Criteria andUserIdNotBetween(Long value1, Long value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
@@ -621,6 +621,66 @@ public class ReplyExample extends com.hengyunsoft.db.example.BaseExample<ReplyEx
 
         public Criteria andArticleIdNotBetween(Long value1, Long value2) {
             addCriterion("article_id not between", value1, value2, "articleId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdIsNull() {
+            addCriterion("reply_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdIsNotNull() {
+            addCriterion("reply_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdEqualTo(Long value) {
+            addCriterion("reply_id =", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdNotEqualTo(Long value) {
+            addCriterion("reply_id <>", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdGreaterThan(Long value) {
+            addCriterion("reply_id >", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("reply_id >=", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdLessThan(Long value) {
+            addCriterion("reply_id <", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdLessThanOrEqualTo(Long value) {
+            addCriterion("reply_id <=", value, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdIn(java.util.List<java.lang.Long> values) {
+            addCriterion("reply_id in", values, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdNotIn(java.util.List<java.lang.Long> values) {
+            addCriterion("reply_id not in", values, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdBetween(Long value1, Long value2) {
+            addCriterion("reply_id between", value1, value2, "replyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andReplyIdNotBetween(Long value1, Long value2) {
+            addCriterion("reply_id not between", value1, value2, "replyId");
             return (Criteria) this;
         }
     }
