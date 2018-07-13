@@ -60,5 +60,6 @@ public class ReplyResDTO{
     private String replyName;
     private Long id;
     private Boolean activeTag = false;
+    private Boolean replyWindow = false;
     private List children = new ArrayList<>();
 }

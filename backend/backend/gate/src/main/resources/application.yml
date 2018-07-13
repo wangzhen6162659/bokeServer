@@ -26,3 +26,17 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://${boke.hostname.eureka}:${boke.port.eureka}${boke.context-path.eureka}/eureka/
+gate:
+  ignore:
+    start-with-list:
+      - /admin/user/login
+      - /static
+#      - /auth/app
+#      - /api/admin/p/login
+#      - /auth/client
+      - /**/swagger-ui.html
+      - /**/webjars/**
+      - /**/v2/api-docs/**
+      - /**/swagger-resources/**
+      - /auth/**
+      - /mt/userConfi/mtMoveLogin

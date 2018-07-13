@@ -2,6 +2,7 @@ package com.file.user.api;
 
 import com.file.user.dto.FileResDTO;
 import com.hengyunsoft.base.Result;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +18,7 @@ public interface FileApi {
     FileResDTO get(@RequestParam(value = "id")Long id);
 
     @RequestMapping(value = "/file/upload",method = RequestMethod.POST)
-    Result<FileResDTO> upload(@RequestParam(value = "upfile", required = false) MultipartFile file) throws IOException;
+    Result<FileResDTO> upload(@RequestBody MultipartFile file) throws IOException;
 
     @RequestMapping(value = "/file/exec",method = RequestMethod.POST)
     String exec(HttpServletRequest request) throws UnsupportedEncodingException;

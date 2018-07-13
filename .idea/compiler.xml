@@ -10,6 +10,13 @@
         <module name="admin-api-impl" />
         <module name="admin-repository" />
         <module name="admin-server" />
+        <module name="api-commons" />
+        <module name="auth-api" />
+        <module name="auth-client" />
+        <module name="auth-common" />
+        <module name="auth-server" />
+        <module name="commons" />
+        <module name="core" />
         <module name="eureka-service" />
         <module name="file-api" />
         <module name="file-api-impl" />
@@ -17,8 +24,12 @@
         <module name="file-server" />
         <module name="gate" />
         <module name="gxqpt-api-commons" />
+        <module name="gxqpt-auth-server" />
         <module name="gxqpt-commons" />
+        <module name="hengyun-gxqpt-core" />
+        <module name="hengyun-gxqpt-util" />
         <module name="server" />
+        <module name="util" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,7 +38,17 @@
       <module name="admin-api-impl" target="1.8" />
       <module name="admin-repository" target="1.8" />
       <module name="admin-server" target="1.8" />
+      <module name="api-commons" target="1.8" />
+      <module name="auth" target="1.8" />
+      <module name="auth-api" target="1.8" />
+      <module name="auth-client" target="1.8" />
+      <module name="auth-common" target="1.8" />
+      <module name="auth-server" target="1.8" />
       <module name="backend" target="1.8" />
+      <module name="build" target="1.8" />
+      <module name="commons" target="1.8" />
+      <module name="commons-build" target="1.8" />
+      <module name="core" target="1.8" />
       <module name="eureka-service" target="1.7" />
       <module name="file" target="1.8" />
       <module name="file-api" target="1.8" />
@@ -35,10 +56,15 @@
       <module name="file-repository" target="1.8" />
       <module name="file-server" target="1.8" />
       <module name="gate" target="1.7" />
-      <module name="gxqpt-api-commons" target="1.8" />
+      <module name="gxqpt-api-commons" target="1.7" />
+      <module name="gxqpt-auth-server" target="1.8" />
       <module name="gxqpt-commons" target="1.8" />
       <module name="gxqpt-commons-build" target="1.8" />
+      <module name="hengyun-gxqpt-build" target="1.8" />
+      <module name="hengyun-gxqpt-core" target="1.8" />
+      <module name="hengyun-gxqpt-util" target="1.8" />
       <module name="server" target="1.7" />
+      <module name="util" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

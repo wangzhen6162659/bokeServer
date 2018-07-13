@@ -1,6 +1,6 @@
 package com.admin.user.api;
 
-import com.admin.user.dto.UserAlbumHomeResDTO;
+import com.admin.user.dto.user.UserAlbumHomeResDTO;
 import com.hengyunsoft.base.Result;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

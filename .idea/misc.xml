@@ -7,6 +7,21 @@
         <option value="$PROJECT_DIR$/commons/pom.xml" />
         <option value="$PROJECT_DIR$/server/pom.xml" />
         <option value="$PROJECT_DIR$/backend/backend/file/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/backend/gxqpt-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/backend/gxqpt-auth/gxqpt-auth-api/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/backend/gxqpt-auth/gxqpt-auth-client/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/backend/gxqpt-auth/gxqpt-auth-common/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/backend/gxqpt-auth/gxqpt-auth-server/pom.xml" />
+        <option value="$PROJECT_DIR$/hengyun-commons/pom.xml" />
+        <option value="$PROJECT_DIR$/hengyun-commons/hengyun-gxqpt-core/pom.xml" />
+        <option value="$PROJECT_DIR$/hengyun-commons/hengyun-gxqpt-util/pom.xml" />
+        <option value="$PROJECT_DIR$/commons/gxqpt-commons/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-server/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-client/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-api/pom.xml" />
+        <option value="$PROJECT_DIR$/commons-build/pom.xml" />
+        <option value="$PROJECT_DIR$/commons-build/commons/pom.xml" />
+        <option value="$PROJECT_DIR$/commons-build/api-commons/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -27,7 +27,7 @@
       FROM
           u_reply
       JOIN u_article ON u_reply.article_id = u_article.id
-      AND u_article.id = 1
+      AND u_article.id = #{id}
       JOIN `user` ON u_reply.user_id = `user`.id
       LEFT JOIN `user` user_reply on user_reply.id = u_reply.reply_id
       ORDER BY u_reply.create_time

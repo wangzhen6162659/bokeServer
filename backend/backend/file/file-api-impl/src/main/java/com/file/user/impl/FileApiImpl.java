@@ -11,9 +11,12 @@ import com.file.user.repository.base.service.FileService;
 import com.file.user.util.UploadUtil;
 import com.file.user.util.ueditor.ActionEnter;
 import com.hengyunsoft.base.Result;
+import com.hengyunsoft.commons.context.BaseContextHandler;
 import com.hengyunsoft.commons.utils.context.DozerUtils;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +29,7 @@ import java.util.Date;
 
 
 @RestController
+@Slf4j
 public class FileApiImpl implements FileApi {
     @Autowired
     DozerUtils dozerUtils;
@@ -45,20 +49,28 @@ public class FileApiImpl implements FileApi {
 
     @Override
     @ApiOperation(value = "文件秒传", notes = "文件秒传   ")
-    public Result<FileResDTO> upload(@RequestParam(value = "upfile", required = false) MultipartFile file) throws IOException {
+    public Result<FileResDTO> upload(@RequestBody MultipartFile file) throws IOException {
+        Long userId = BaseContextHandler.getAdminId();
+
+        String realName = fileService.genId().toString();
         String prefix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);// 后缀名
-        UploadUtil.write(file.getInputStream(), fileProperties, file.getName() + "." + prefix);
-        String url = "http://192.168.1.124:6080/file/" + file.getOriginalFilename();
+        UploadUtil.write(file.getInputStream(), fileProperties, realName + "." + prefix);
+        String url = "http://192.168.1.124:6080/file/" + realName + "." + prefix;
         FileResDTO res = new FileResDTO();
-        res.setFileName(file.getName());
-        res.setPath(fileProperties.getUploadPathPrefix() + "/" + file.getName());
+        res.setFileName(file.getOriginalFilename());
+        res.setRealName(realName);
+        res.setPath(fileProperties.getUploadPathPrefix() + "\\" + realName + "." + prefix);
         res.setExt(prefix);
         res.setMime(file.getContentType());
         res.setSize(String.valueOf(file.getSize()));
         res.setUrl(url);
         res.setUpdateTime(new Date());
         res.setCreateTime(new Date());
-        return Result.success(res);
+        res.setCreateUser(userId);
+        res.setUpdateUser(userId);
+        res.setUserId(userId);
+
+        return Result.success(dozerUtils.map(fileService.save(dozerUtils.map(res,File.class)),FileResDTO.class));
     }
 
     @Override
@@ -78,6 +90,7 @@ public class FileApiImpl implements FileApi {
             file.setUrl(jsonObject.get("url").toString());
             file.setUserId(1l);
             fileService.save(file);
+
         }
         return exec;
     }

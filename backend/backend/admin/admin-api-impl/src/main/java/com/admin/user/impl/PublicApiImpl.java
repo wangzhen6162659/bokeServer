@@ -3,7 +3,7 @@ package com.admin.user.impl;
 import com.admin.user.api.PublicApi;
 import com.admin.user.dto.publicapi.PublicBingDayPicDTO;
 import com.admin.user.repository.base.service.PublicService;
-import com.file.user.util.FileUtils;
+import com.hengyunsoft.security.auth.client.annotation.IgnoreToken;
 import com.hengyunsoft.utils.JSONUtils;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,6 +42,7 @@ public class PublicApiImpl implements PublicApi {
     PublicService publicService;
 
     @Override
+    @IgnoreToken
     @RequestMapping(value = "/getBingDayPic", method = RequestMethod.GET)
     public Object getBingDayPic() throws MalformedURLException, ParseException {
 

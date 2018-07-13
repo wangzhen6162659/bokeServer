@@ -16,6 +16,7 @@
         <module>admin</module>
         <module>file</module>
         <module>gate</module>
+        <module>gxqpt-auth</module>
     </modules>
 
     <dependencyManagement>

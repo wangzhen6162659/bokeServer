@@ -1,0 +1,35 @@
+gxqpt:
+  port:
+    nginx: ${server.port}
+    eureka: 8761
+    gate: 9999            # 开发环境不使用nginx
+  hostname:
+    mysql: 127.0.0.1      # 根据环境更改
+    nginx: 127.0.0.1      # 测试不走nginx 就填写本机
+    eureka: 127.0.0.1     # 根据环境更改
+    gate: ${gxqpt.hostname.nginx}      # 开发环境不使用nginx
+    auth: 127.0.0.1
+  mysql:
+    admin:
+      database: boke_main       # 根据环境更改
+    port: 3306                  # 根据环境更改
+    username: root              # 根据环境更改
+    password:
+
+spring:
+  profiles:
+    active: dev
+  redis:
+    key-prefix: dev
+  rabbitmq:
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${gxqpt.hostname.eureka}:${gxqpt.port.eureka}${gxqpt.context-path.eureka}/eureka/
+
+id-generator:
+  machine-code: 1  # id生成器机器掩码

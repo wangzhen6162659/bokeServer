@@ -18,4 +18,12 @@ public class UserServiceImpl extends BaseServiceImpl<Long,User,UserExample> impl
     protected BaseNormalDao<Long, User, UserExample> getDao() {
         return this.mapper;
     }
+
+    @Override
+    public User getLogin(String account, String enCoderPassword) {
+        UserExample example = new UserExample();
+        example.createCriteria().andAccountEqualTo(account)
+                .andPasswordEqualTo(enCoderPassword);
+        return mapper.selectEntity(example);
+    }
 }

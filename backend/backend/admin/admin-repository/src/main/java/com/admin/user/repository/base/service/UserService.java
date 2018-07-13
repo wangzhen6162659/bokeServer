@@ -5,5 +5,5 @@ import com.admin.user.repository.base.example.UserExample;
 import com.hengyunsoft.base.service.normal.BaseService;
 
 public interface UserService extends BaseService<Long,User,UserExample>{
-
+    User getLogin(String account, String enCoderPassword);
 }

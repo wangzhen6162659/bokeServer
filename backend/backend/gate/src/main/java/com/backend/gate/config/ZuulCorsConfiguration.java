@@ -7,7 +7,7 @@ import org.springframework.web.filter.CorsFilter;
 
 /**
  * 解决跨域问题
- * @author wz
+ * @author
  * @createTime 2017-12-29 14:16
  */
 @Configuration

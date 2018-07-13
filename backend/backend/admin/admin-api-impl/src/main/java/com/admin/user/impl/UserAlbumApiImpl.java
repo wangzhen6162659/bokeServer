@@ -1,12 +1,13 @@
 package com.admin.user.impl;
 
 import com.admin.user.api.UserAlbumApi;
-import com.admin.user.dto.UserAlbumHomeResDTO;
+import com.admin.user.dto.user.UserAlbumHomeResDTO;
 import com.admin.user.entity.po.UserAlbum;
 import com.admin.user.repository.base.example.UserAlbumExample;
 import com.admin.user.repository.base.service.UserAlbumService;
 import com.hengyunsoft.base.Result;
 import com.hengyunsoft.commons.utils.context.DozerUtils;
+import com.hengyunsoft.security.auth.client.annotation.IgnoreToken;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class UserAlbumApiImpl implements UserAlbumApi{
 
     @Override
     @ApiOperation(value="查找用户照片", notes="查找用户照片")
+    @IgnoreToken
     @RequestMapping(value = "/findPicture", method = RequestMethod.GET)
     public Result<List<UserAlbumHomeResDTO>> findPicture() {
         UserAlbumExample example = new UserAlbumExample();

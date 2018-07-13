@@ -24,7 +24,9 @@ boke:
     eureka: /boke-eureka
     admin: ${server.context-path}
     gate: /api
-
+  redirect:
+      index-url:
+      login-url:
   mysql:
     admin:
       driver-class-name: com.mysql.jdbc.Driver

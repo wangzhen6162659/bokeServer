@@ -59,6 +59,25 @@
             <artifactId>file-repository</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.hengyunsoft.gxqpt</groupId>
+            <artifactId>gxqpt-api-commons</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.backend</groupId>
+            <artifactId>api-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.backend</groupId>
+            <artifactId>auth-client</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

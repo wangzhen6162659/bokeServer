@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan(
         basePackages = {"com.admin",
-                "com.hengyunsoft.commons.utils.context"})
+                "com.hengyunsoft.commons.utils.context",
+                "com.admin.inertceptor",
+                "com.hengyunsoft.platform.commons.sec"})
 public class AdminServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(AdminServiceApplication.class, args);
