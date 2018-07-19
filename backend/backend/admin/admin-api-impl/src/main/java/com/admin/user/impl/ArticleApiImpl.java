@@ -14,8 +14,10 @@ import com.admin.user.repository.base.service.ArticleService;
 import com.admin.user.repository.base.service.ArticleTypeService;
 import com.hengyunsoft.base.Result;
 import com.hengyunsoft.commons.context.BaseContextHandler;
+import com.hengyunsoft.commons.exception.core.ExceptionCode;
 import com.hengyunsoft.commons.utils.context.DozerUtils;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreToken;
+import com.hengyunsoft.utils.BizAssert;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -77,6 +79,7 @@ public class ArticleApiImpl implements ArticleApi {
     @Override
     @RequestMapping(value = "/saveArticleType", method = RequestMethod.POST)
     public Result<Boolean> saveArticleType(@RequestBody ArticleTypeResDTO dto) {
+        BizAssert.assertNotEmpty(ExceptionCode.ARTICLE_TYPE_NAME_NULL,dto.getTypeName());
         Long userId = BaseContextHandler.getAdminId();
 
         ArticleType articleType = dozerUtils.map(dto, ArticleType.class);
@@ -93,6 +96,9 @@ public class ArticleApiImpl implements ArticleApi {
     @Override
     @RequestMapping(value = "/saveArticle", method = RequestMethod.POST)
     public Result<Boolean> saveArticle(@RequestBody ArticleSaveReqDTO dto) {
+        BizAssert.assertNotEmpty(ExceptionCode.ARTICLE_TYPE_NAME_NULL,dto.getType());
+        BizAssert.assertNotEmpty(ExceptionCode.ARTICLE_CONTENT_NULL,dto.getContent());
+        BizAssert.assertNotEmpty(ExceptionCode.ARTICLE_TITLE_NULL,dto.getTitle());
         Long userId = BaseContextHandler.getAdminId();
 
         Article article = dozerUtils.map(dto, Article.class);

@@ -2,7 +2,6 @@ package com.admin.inertceptor;
 
 import com.hengyunsoft.commons.context.BaseContextHandler;
 import com.hengyunsoft.exception.BizException;
-import com.hengyunsoft.platform.commons.sec.IUserToken;
 import com.hengyunsoft.platform.commons.sec.impl.BitEncryptUserToken;
 import com.hengyunsoft.security.auth.client.annotation.AppToken;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreAppToken;

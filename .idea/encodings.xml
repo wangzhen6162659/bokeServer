@@ -15,21 +15,15 @@
     <file url="file://$PROJECT_DIR$/backend/backend/gate" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-client" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-server" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-server" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/backend/backend/gxqpt-auth/auth-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/build" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/build/core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/build/util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons-build" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons-build/api-commons" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commons-build/commons" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hengyun-commons" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hengyun-commons/core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hengyun-commons/util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server/eurka" charset="UTF-8" />
   </component>

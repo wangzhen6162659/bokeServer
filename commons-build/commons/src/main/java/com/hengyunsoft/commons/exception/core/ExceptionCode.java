@@ -5,16 +5,6 @@ import com.hengyunsoft.exception.code.BaseExceptionCode;
 /**
  * 全局错误码 10000-15000
  *
- * 标准服务异常编码 范围：35000~39999
- * 邮件服务异常编码 范围：40000~44999
- * 短信服务异常编码 范围：45000~49999
- * 权限服务异常编码 范围：50000-59999
- * 文件服务异常编码 范围：60000~64999
- * 日志服务异常编码 范围：65000~69999
- * 消息服务异常编码 范围：70000~74999
- * 开发者平台异常编码 范围：75000~79999
- * 搜索服务异常编码 范围：80000-84999
- * 共享交换异常编码 范围：85000-90000
  * @author tyh
  * @createTime 2017-12-13 16:22
  */
@@ -47,11 +37,11 @@ public enum ExceptionCode implements BaseExceptionCode {
     JWT_APPID_ENABLED(40007, "AppId 已经被禁用！请联系管理员"),
     //jwt token 相关 end
 
-
-    //体系管理相关 start
-    SYSTEM_ID_NULL(56500,"体系id不能为空"),
-    //体系管理相关 end
-
+    //文章相关//
+    ARTICLE_TYPE_NAME_NULL(50001, "文章类型不能为空"),
+    ARTICLE_NAME_NULL(50002, "文章名不能为空"),
+    ARTICLE_CONTENT_NULL(50003, "文章内容不能为空"),
+    ARTICLE_TITLE_NULL(50003, "文章标题不能为空"),
     ;
 
 

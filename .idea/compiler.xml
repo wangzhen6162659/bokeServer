@@ -16,7 +16,6 @@
         <module name="auth-common" />
         <module name="auth-server" />
         <module name="commons" />
-        <module name="core" />
         <module name="eureka-service" />
         <module name="file-api" />
         <module name="file-api-impl" />
@@ -29,7 +28,6 @@
         <module name="hengyun-gxqpt-core" />
         <module name="hengyun-gxqpt-util" />
         <module name="server" />
-        <module name="util" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
