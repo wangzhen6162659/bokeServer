@@ -13,12 +13,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.hengyunsoft.gxqpt</groupId>
-            <artifactId>gxqpt-commons</artifactId>
+            <groupId>com.backend</groupId>
+            <artifactId>commons</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.hengyunsoft</groupId>
-            <artifactId>hengyun-gxqpt-core</artifactId>
+            <groupId>com.backend</groupId>
+            <artifactId>core</artifactId>
         </dependency>
 
         <dependency>

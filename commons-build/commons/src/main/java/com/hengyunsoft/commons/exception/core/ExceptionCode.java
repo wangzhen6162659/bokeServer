@@ -26,7 +26,7 @@ public enum ExceptionCode implements BaseExceptionCode {
 
     //jwt token 相关 start
     //过期
-    JWT_TOKEN_EXPIRED(40001, "token超时，请检查 token 的有效期"),
+    JWT_TOKEN_EXPIRED(40001, "请先登录！"),
     //签名错误
     JWT_SIGNATURE(40002, "不合法的token，请认真比对 token 的签名"),
     //token 为空

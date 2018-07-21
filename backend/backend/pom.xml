@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.hengyunsoft</groupId>
-        <artifactId>hengyun-boot-dependencies</artifactId>
+        <groupId>com.notex</groupId>
+        <artifactId>notex-boot-dependencies</artifactId>
         <version>1.1-SNAPSHOT</version>
     </parent>
     <groupId>com.backend</groupId>
@@ -16,7 +16,7 @@
         <module>admin</module>
         <module>file</module>
         <module>gate</module>
-        <module>gxqpt-auth</module>
+        <module>auth</module>
     </modules>
 
     <dependencyManagement>

@@ -1,6 +1,7 @@
 package com.admin.inertceptor;
 
 import com.hengyunsoft.commons.context.BaseContextHandler;
+import com.hengyunsoft.commons.exception.core.ExceptionCode;
 import com.hengyunsoft.exception.BizException;
 import com.hengyunsoft.platform.commons.sec.impl.BitEncryptUserToken;
 import com.hengyunsoft.security.auth.client.annotation.AppToken;
@@ -84,7 +85,7 @@ public class AppAuthRestInterceptor extends HandlerInterceptorAdapter {
             if (e instanceof BizException) {
                 throw (BizException) e;
             }
-            throw new BizException(-1, "请先登录！");
+            throw new BizException(ExceptionCode.JWT_TOKEN_EXPIRED.getCode(),ExceptionCode.JWT_TOKEN_EXPIRED.getMsg());
         }
         return super.preHandle(request, response, handler);
     }

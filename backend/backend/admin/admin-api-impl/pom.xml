@@ -38,11 +38,6 @@
             <artifactId>httpcore</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.baidu.ueditor</groupId>
-            <artifactId>json</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>

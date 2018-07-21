@@ -4,5 +4,6 @@ E:\myworkspace\workspacefirst\codeBySC2\backend\backend\file\file-server\src\mai
 E:\myworkspace\workspacefirst\codeBySC2\backend\backend\file\file-server\src\main\java\com\file\utils\datasource\DataSourceProperties.java
 E:\myworkspace\workspacefirst\codeBySC2\backend\backend\file\file-server\src\main\java\com\file\config\datasource\AdminAutoConfiguration.java
 E:\myworkspace\workspacefirst\codeBySC2\backend\backend\file\file-server\src\main\java\com\file\config\dozer\DozerAutoConfiguration.java
+E:\myworkspace\workspacefirst\codeBySC2\backend\backend\file\file-server\src\main\java\com\file\inertceptor\AppAuthRestInterceptor.java
 E:\myworkspace\workspacefirst\codeBySC2\backend\backend\file\file-server\src\main\java\com\file\config\dozer\DozerConfigurationProperties.java
 E:\myworkspace\workspacefirst\codeBySC2\backend\backend\file\file-server\src\main\java\com\file\utils\datasource\DataSourceFactory.java
