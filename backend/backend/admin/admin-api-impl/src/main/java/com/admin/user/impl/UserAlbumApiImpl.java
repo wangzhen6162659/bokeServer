@@ -39,6 +39,7 @@ public class UserAlbumApiImpl implements UserAlbumApi{
 
     @Override
     @ApiOperation(value="照片切换", notes="照片切换")
+    @IgnoreToken
     @RequestMapping(value = "/getByIndex", method = RequestMethod.GET)
     public Result<UserAlbumHomeResDTO> getByIndex(@RequestParam(value = "index") Long index) {
         Long id = 1L;
