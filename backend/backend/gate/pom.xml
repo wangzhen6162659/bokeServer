@@ -48,13 +48,8 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.hengyunsoft.gxqpt</groupId>
-			<artifactId>gxqpt-commons</artifactId>
-			<version>1.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.hengyunsoft.gxqpt</groupId>
-			<artifactId>gxqpt-api-commons</artifactId>
+			<groupId>com.backend</groupId>
+			<artifactId>commons</artifactId>
 			<version>1.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

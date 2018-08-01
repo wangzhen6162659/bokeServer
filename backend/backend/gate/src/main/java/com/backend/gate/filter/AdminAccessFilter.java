@@ -2,8 +2,6 @@ package com.backend.gate.filter;
 
 import com.backend.gate.config.GateIgnoreProperties;
 import com.hengyunsoft.base.Result;
-import com.hengyunsoft.commons.context.BaseContextHandler;
-import com.hengyunsoft.exception.BizException;
 import com.hengyunsoft.platform.commons.sec.IUserToken;
 import com.hengyunsoft.utils.JSONUtils;
 import com.netflix.zuul.ZuulFilter;
