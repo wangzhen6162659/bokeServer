@@ -17,4 +17,7 @@ public interface UserCollectApi {
 
     @RequestMapping(value = "/collect/getCollectMusic",method = RequestMethod.GET)
     Result<List<UserCollectMusicSaveDTO>> getCollectMusic(@RequestParam(value = "userId") Long userId);
+
+    @RequestMapping(value = "/collect/deleteCollectMusic",method = RequestMethod.GET)
+    Result<Boolean> deleteCollectMusic(@RequestParam(value = "musicId") Long musicId);
 }

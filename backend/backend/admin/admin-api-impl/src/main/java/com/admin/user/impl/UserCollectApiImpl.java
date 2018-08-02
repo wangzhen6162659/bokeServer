@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Api(value = "UserCollectApi", description = "用户收藏管理")
 @RestController
@@ -35,6 +36,12 @@ public class UserCollectApiImpl implements UserCollectApi{
     public Result<Boolean> saveCollectMusic(@RequestBody UserCollectMusicSaveDTO dto) {
         Long userId = BaseContextHandler.getAdminId();
 
+        UserCollectMusicExample example = new UserCollectMusicExample();
+        example.createCriteria().andUserIdEqualTo(userId).andMusicIdEqualTo(dto.getMusicId());
+        if(userCollectMusicService.find(example).size()>0){
+            return Result.fail("你已经收藏过该音乐！");
+        }
+
         UserCollectMusic userCollectMusic = dozerUtils.map(dto,UserCollectMusic.class);
         userCollectMusic.setCreateUser(userId);
         userCollectMusic.setUpdateUser(userId);
@@ -43,7 +50,7 @@ public class UserCollectApiImpl implements UserCollectApi{
         if (userCollectMusicService.save(userCollectMusic) != null){
             return Result.success(true);
         }
-        return Result.fail("添加失败");
+        return Result.fail("添加失败！");
     }
 
     @Override
@@ -60,5 +67,21 @@ public class UserCollectApiImpl implements UserCollectApi{
         }
 
         return Result.success(list);
+    }
+
+    @Override
+    @ApiOperation(value = "取消收藏音乐", notes = "取消收藏音乐")
+    @RequestMapping(value = "/deleteCollectMusic",method = RequestMethod.GET)
+    public Result<Boolean> deleteCollectMusic(@RequestParam(value = "musicId") Long musicId) {
+        Long userId = BaseContextHandler.getAdminId();
+
+        UserCollectMusicExample example = new UserCollectMusicExample();
+        example.createCriteria().andUserIdEqualTo(userId).andMusicIdEqualTo(musicId);
+
+        List<UserCollectMusic> list = userCollectMusicService.find(example);
+        if (userCollectMusicService.deleteByIds(list.stream().map(UserCollectMusic::getId).collect(Collectors.toList()))>0){
+            return Result.success(true);
+        }
+        return Result.fail("取消收藏失败！");
     }
 }
