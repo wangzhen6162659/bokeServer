@@ -74,73 +74,73 @@ public class UserAlbumExample extends com.hengyunsoft.db.example.BaseExample<Use
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameIsNull() {
-            addCriterion("album_name is null");
+        public Criteria andTitleIsNull() {
+            addCriterion("title is null");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameIsNotNull() {
-            addCriterion("album_name is not null");
+        public Criteria andTitleIsNotNull() {
+            addCriterion("title is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameEqualTo(String value) {
-            addCriterion("album_name =", value, "albumName");
+        public Criteria andTitleEqualTo(String value) {
+            addCriterion("title =", value, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameNotEqualTo(String value) {
-            addCriterion("album_name <>", value, "albumName");
+        public Criteria andTitleNotEqualTo(String value) {
+            addCriterion("title <>", value, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameGreaterThan(String value) {
-            addCriterion("album_name >", value, "albumName");
+        public Criteria andTitleGreaterThan(String value) {
+            addCriterion("title >", value, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameGreaterThanOrEqualTo(String value) {
-            addCriterion("album_name >=", value, "albumName");
+        public Criteria andTitleGreaterThanOrEqualTo(String value) {
+            addCriterion("title >=", value, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameLessThan(String value) {
-            addCriterion("album_name <", value, "albumName");
+        public Criteria andTitleLessThan(String value) {
+            addCriterion("title <", value, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameLessThanOrEqualTo(String value) {
-            addCriterion("album_name <=", value, "albumName");
+        public Criteria andTitleLessThanOrEqualTo(String value) {
+            addCriterion("title <=", value, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameLike(String value) {
-            addCriterion("album_name like", value, "albumName");
+        public Criteria andTitleLike(String value) {
+            addCriterion("title like", value, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameNotLike(String value) {
-            addCriterion("album_name not like", value, "albumName");
+        public Criteria andTitleNotLike(String value) {
+            addCriterion("title not like", value, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameIn(java.util.List<java.lang.String> values) {
-            addCriterion("album_name in", values, "albumName");
+        public Criteria andTitleIn(java.util.List<java.lang.String> values) {
+            addCriterion("title in", values, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameNotIn(java.util.List<java.lang.String> values) {
-            addCriterion("album_name not in", values, "albumName");
+        public Criteria andTitleNotIn(java.util.List<java.lang.String> values) {
+            addCriterion("title not in", values, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameBetween(String value1, String value2) {
-            addCriterion("album_name between", value1, value2, "albumName");
+        public Criteria andTitleBetween(String value1, String value2) {
+            addCriterion("title between", value1, value2, "title");
             return (Criteria) this;
         }
 
-        public Criteria andAlbumNameNotBetween(String value1, String value2) {
-            addCriterion("album_name not between", value1, value2, "albumName");
+        public Criteria andTitleNotBetween(String value1, String value2) {
+            addCriterion("title not between", value1, value2, "title");
             return (Criteria) this;
         }
 

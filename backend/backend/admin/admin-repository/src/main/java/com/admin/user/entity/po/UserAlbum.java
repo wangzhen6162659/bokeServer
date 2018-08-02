@@ -7,7 +7,7 @@ import java.util.Date;
 public class UserAlbum extends BaseEntity<Long> implements Serializable {
     private Long id;
 
-    private String albumName;
+    private String title;
 
     private String path;
 
@@ -55,12 +55,12 @@ public class UserAlbum extends BaseEntity<Long> implements Serializable {
         this.id = id;
     }
 
-    public String getAlbumName() {
-        return albumName;
+    public String getTitle() {
+        return title;
     }
 
-    public void setAlbumName(String albumName) {
-        this.albumName = albumName == null ? null : albumName.trim();
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getPath() {

@@ -6,7 +6,7 @@
     @mbggenerated
     -->
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="album_name" jdbcType="VARCHAR" property="albumName" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="path" jdbcType="VARCHAR" property="path" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
@@ -84,8 +84,7 @@
     <!--
     @mbggenerated
     -->
-    id, album_name, path, url, user_id, desc_, create_user, create_time, update_user, 
-    update_time
+    id, title, path, url, user_id, desc_, create_user, create_time, update_user, update_time
   </sql>
   <select id="selectByExample" parameterType="com.admin.user.repository.base.example.UserAlbumExample" resultMap="BaseResultMap">
     <!--
@@ -140,7 +139,7 @@
     </if>
     limit 0,1 
   </select>
-  <select id="selectAppIdById" parameterType="map" resultType="java.lang.String">
+  <select id="selectAppIdById" parameterType="java.lang.Long" resultType="java.lang.String">
     <!--
     @mbggenerated
     -->
@@ -173,14 +172,14 @@
       #{item}
     </foreach> 
   </delete>
-  <delete id="deleteByAppIdAndId" parameterType="java.lang.Long">
+  <delete id="deleteByAppIdAndId" parameterType="map">
     <!--
     @mbggenerated
     -->
     delete from user_album
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByAppIdAndIds" parameterType="list">
+  <delete id="deleteByAppIdAndIds" parameterType="map">
     <!--
     @mbggenerated
     -->
@@ -200,7 +199,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </update>
-  <update id="removeByAppIdAndIds" parameterType="com.admin.user.entity.po.UserAlbum">
+  <update id="removeByAppIdAndIds" parameterType="map">
     <!--
     @mbggenerated
     -->
@@ -211,7 +210,7 @@
     #{item}
   </foreach>
   </update>
-  <update id="removeByPrimaryKey" parameterType="com.admin.user.entity.po.UserAlbum">
+  <update id="removeByPrimaryKey" parameterType="java.lang.Long">
     <!--
     @mbggenerated
     -->
@@ -220,7 +219,7 @@
 
      where 1=1 and id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="removeByAppIdAndId" parameterType="com.admin.user.entity.po.UserAlbum">
+  <update id="removeByAppIdAndId" parameterType="map">
     <!--
     @mbggenerated
     -->
@@ -233,11 +232,11 @@
     <!--
     @mbggenerated
     -->
-    insert into user_album (id, album_name, path, 
+    insert into user_album (id, title, path, 
       url, user_id, desc_, create_user, 
       create_time, update_user, update_time
       )
-    values (#{id,jdbcType=BIGINT}, #{albumName,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
       #{url,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{desc,jdbcType=VARCHAR}, #{createUser,jdbcType=BIGINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}
       )
@@ -246,9 +245,9 @@
     <!--
     @mbggenerated
     -->
-    insert into user_album (id, album_name, path, url, user_id, desc_, create_user, create_time, update_user, update_time ) values 
+    insert into user_album (id, title, path, url, user_id, desc_, create_user, create_time, update_user, update_time ) values 
     <foreach collection="list" index="index" item="item" separator=",">
-      (#{item.id,jdbcType=BIGINT}, #{item.albumName,jdbcType=VARCHAR}, #{item.path,jdbcType=VARCHAR}, 
+      (#{item.id,jdbcType=BIGINT}, #{item.title,jdbcType=VARCHAR}, #{item.path,jdbcType=VARCHAR}, 
         #{item.url,jdbcType=VARCHAR}, #{item.userId,jdbcType=BIGINT}, #{item.desc,jdbcType=VARCHAR}, 
         #{item.createUser,jdbcType=BIGINT}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateUser,jdbcType=BIGINT}, 
         #{item.updateTime,jdbcType=TIMESTAMP})
@@ -263,8 +262,8 @@
       <if test="id != null">
         id,
       </if>
-      <if test="albumName != null">
-        album_name,
+      <if test="title != null">
+        title,
       </if>
       <if test="path != null">
         path,
@@ -295,8 +294,8 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="albumName != null">
-        #{albumName,jdbcType=VARCHAR},
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
       </if>
       <if test="path != null">
         #{path,jdbcType=VARCHAR},
@@ -342,8 +341,8 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.albumName != null">
-        album_name = #{record.albumName,jdbcType=VARCHAR},
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
       </if>
       <if test="record.path != null">
         path = #{record.path,jdbcType=VARCHAR},
@@ -380,7 +379,7 @@
     -->
     update user_album
     set id = #{record.id,jdbcType=BIGINT},
-      album_name = #{record.albumName,jdbcType=VARCHAR},
+      title = #{record.title,jdbcType=VARCHAR},
       path = #{record.path,jdbcType=VARCHAR},
       url = #{record.url,jdbcType=VARCHAR},
       user_id = #{record.userId,jdbcType=BIGINT},
@@ -399,8 +398,8 @@
     -->
     update user_album
     <set>
-      <if test="albumName != null">
-        album_name = #{albumName,jdbcType=VARCHAR},
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="path != null">
         path = #{path,jdbcType=VARCHAR},
@@ -435,8 +434,8 @@
     -->
     update user_album
     <set>
-      <if test="albumName != null">
-        album_name = #{albumName,jdbcType=VARCHAR},
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
       </if>
       <if test="path != null">
         path = #{path,jdbcType=VARCHAR},
@@ -470,7 +469,7 @@
     @mbggenerated
     -->
     update user_album
-    set album_name = #{albumName,jdbcType=VARCHAR},
+    set title = #{title,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=BIGINT},
@@ -486,7 +485,7 @@
     @mbggenerated
     -->
     update user_album
-    set album_name = #{albumName,jdbcType=VARCHAR},
+    set title = #{title,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=BIGINT},
