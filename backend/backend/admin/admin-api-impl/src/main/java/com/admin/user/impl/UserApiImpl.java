@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class UserApiImpl implements UserApi {
     @IgnoreToken
     @ApiOperation(value = "用户登录", notes = "用户登录")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Result<UserResDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public Result<UserLoginResDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (StringUtils.isEmpty(userLoginDTO.getAccount())){
             return Result.fail("请输入账号！");
         }
@@ -76,13 +77,11 @@ public class UserApiImpl implements UserApi {
         String token = "";
         if (user != null) {
             token = setUserToken("/", user.getId().toString(), user.getAccount(), null);
+            user.setNickname(URLEncoder.encode(user.getNickname(),"UTF-8"));
         } else {
             return Result.fail("用户名或密码错误！");
         }
-        UserResDTO res = dozerUtils.map(user, UserResDTO.class);
-        if (res.getSelfLaber() != null) {
-            res.setSelfLabers(Arrays.asList(user.getSelfLaber().split(",")));
-        }
+        UserLoginResDTO res = dozerUtils.map(user, UserLoginResDTO.class);
         res.setToken(token);
         return Result.success(res);
     }

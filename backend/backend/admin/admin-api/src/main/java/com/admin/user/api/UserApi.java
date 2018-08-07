@@ -28,5 +28,5 @@ public interface UserApi {
     Result<UserResDTO> save(@RequestBody UserSaveDTO dto);
 
     @RequestMapping(value = "/user/login",method = RequestMethod.POST)
-    Result<UserResDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request, HttpServletResponse response) throws IOException;
+    Result<UserLoginResDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request, HttpServletResponse response) throws IOException;
 }
