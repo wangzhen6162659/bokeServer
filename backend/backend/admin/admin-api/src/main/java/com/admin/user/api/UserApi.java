@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 @FeignClient(name = "${boke.feign.auth-server:admin-server}")
 public interface UserApi {
@@ -25,7 +26,7 @@ public interface UserApi {
     Result<UserResDTO> update(@RequestBody UserUpdateDTO dto);
 
     @RequestMapping(value = "/user/save",method = RequestMethod.POST)
-    Result<UserResDTO> save(@RequestBody UserSaveDTO dto);
+    Result<UserResDTO> save(@RequestBody UserSaveDTO dto) throws UnsupportedEncodingException;
 
     @RequestMapping(value = "/user/login",method = RequestMethod.POST)
     Result<UserLoginResDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request, HttpServletResponse response) throws IOException;

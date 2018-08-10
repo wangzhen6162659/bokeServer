@@ -5,7 +5,13 @@
 
 	<groupId>com.notex</groupId>
 	<artifactId>server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<!--
+	 jar
+	 war
+	 pom
+	 -->
 
 	<name>server</name>
 	<modules>

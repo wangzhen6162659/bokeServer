@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.List;
@@ -110,10 +111,17 @@ public class UserApiImpl implements UserApi {
     @IgnoreToken
     @ApiOperation(value = "用户新增", notes = "用户新增")
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public Result<UserResDTO> save(@RequestBody UserSaveDTO dto) {
+    public Result<UserResDTO> save(@RequestBody UserSaveDTO dto) throws UnsupportedEncodingException {
+        UserExample example = new UserExample();
+        example.createCriteria().andAccountEqualTo(dto.getAccount());
+        if (userService.find(example).size()>0){
+            return Result.fail("该用户已注册！");
+        }
+
         User user = dozerUtils.map(dto,User.class);
         UserResDTO res = dozerUtils.map(userService.save(user),UserResDTO.class);
         res.setToken(setUserToken("/", user.getId().toString(), user.getAccount(), null));
+        res.setNickname(URLEncoder.encode(res.getNickname(),"UTF-8"));
         return Result.success(res);
     }
 

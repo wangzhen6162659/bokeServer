@@ -86,7 +86,7 @@
 		updateByAppIdAndIdSelective
 		updateByAppIdAndId
 		-->
-        <table tableName="user_collect_music" domainObjectName="UserCollectMusic" enabledGxqptExt="true">
+        <table tableName="user_album" domainObjectName="UserAlbum" enabledGxqptExt="true">
         </table>
         <!--
         <table tableName="admin_role" domainObjectName="AdminRole" enabledGxqptExt="true">

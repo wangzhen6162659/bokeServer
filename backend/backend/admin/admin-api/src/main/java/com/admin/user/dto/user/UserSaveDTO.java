@@ -13,4 +13,6 @@ public class UserSaveDTO {
     private String password;
     @ApiModelProperty(value = "用户名称")
     private String nickname;
+    @ApiModelProperty(value = "默认头像")
+    private String photo;
 }

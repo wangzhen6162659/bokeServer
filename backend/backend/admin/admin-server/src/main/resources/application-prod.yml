@@ -10,8 +10,6 @@ server:
 spring:
   application:
     name: admin-server
-  profiles:
-      active: dev
 boke:
   port:
     eureka: 8761
@@ -32,9 +30,9 @@ boke:
   mysql:
     admin:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://127.0.0.1:3306/boke_main
+      url: jdbc:mysql://127.0.0.1/boke_main
       username: root
-      password:
+      password: CvlggqCYNiCta8ygufHClXg0UQjdvvFAgUzyKT0J9OiMWOmOJ7wGFSe/u+FMV1AvfcciZ0EHYcaNOgjGje9LkQ==
 
 eureka:
   instance:
