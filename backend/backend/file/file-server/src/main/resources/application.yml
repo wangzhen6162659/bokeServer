@@ -11,7 +11,7 @@ spring:
   application:
     name: file-server
   profiles:
-      active: dev
+      active: prod
 boke:
   port:
     eureka: 8761
