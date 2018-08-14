@@ -113,7 +113,7 @@
     <!--
     @mbggenerated
     -->
-    select 
+    select
     <include refid="Base_Column_List" />
     from user_album
     where id = #{id,jdbcType=BIGINT}
@@ -137,13 +137,13 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
-    limit 0,1 
+    limit 0,1
   </select>
   <select id="selectAppIdById" parameterType="java.lang.Long" resultType="java.lang.String">
     <!--
     @mbggenerated
     -->
-    select app_id 
+    select app_id
     from user_album
     where 1=1 and id = #{id,jdbcType=BIGINT}
   </select>
@@ -167,10 +167,10 @@
     <!--
     @mbggenerated
     -->
-    delete from  user_album where id in 
+    delete from  user_album where id in
     <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
       #{item}
-    </foreach> 
+    </foreach>
   </delete>
   <delete id="deleteByAppIdAndId" parameterType="map">
     <!--
@@ -183,17 +183,17 @@
     <!--
     @mbggenerated
     -->
-    delete from  user_album where id in 
+    delete from  user_album where id in
     <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
       #{item}
-    </foreach> 
+    </foreach>
   </delete>
   <update id="removeByExample" parameterType="com.admin.user.entity.po.UserAlbum">
     <!--
     @mbggenerated
     -->
     update user_album
-    set is_delete = 1 
+    set is_delete = 1
 
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -204,53 +204,53 @@
     @mbggenerated
     -->
     update user_album
-    set is_delete = 1 
- where 1=1 and id in 
- <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
-    #{item}
-  </foreach>
+    set is_delete = 1
+    where 1=1 and id in
+    <foreach close=")" collection="list" index="index" item="item" open="(" separator=",">
+      #{item}
+    </foreach>
   </update>
   <update id="removeByPrimaryKey" parameterType="java.lang.Long">
     <!--
     @mbggenerated
     -->
     update user_album
-    set is_delete = 1 
+    set is_delete = 1
 
-     where 1=1 and id = #{id,jdbcType=BIGINT}
+    where 1=1 and id = #{id,jdbcType=BIGINT}
   </update>
   <update id="removeByAppIdAndId" parameterType="map">
     <!--
     @mbggenerated
     -->
     update user_album
-    set is_delete = 1 
+    set is_delete = 1
 
-     where 1=1 and id = #{id,jdbcType=BIGINT}
+    where 1=1 and id = #{id,jdbcType=BIGINT}
   </update>
   <insert id="insert" parameterType="com.admin.user.entity.po.UserAlbum">
     <!--
     @mbggenerated
     -->
-    insert into user_album (id, title, path, 
-      url, user_id, desc_, create_user, 
-      create_time, update_user, update_time
-      )
-    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{desc,jdbcType=VARCHAR}, #{createUser,jdbcType=BIGINT}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+    insert into user_album (id, title, path,
+    url, user_id, desc_, create_user,
+    create_time, update_user, update_time
+    )
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR},
+    #{url,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{desc,jdbcType=VARCHAR}, #{createUser,jdbcType=BIGINT},
+    #{createTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}
+    )
   </insert>
   <insert id="batchInsert" parameterType="java.util.List">
     <!--
     @mbggenerated
     -->
-    insert into user_album (id, title, path, url, user_id, desc_, create_user, create_time, update_user, update_time ) values 
+    insert into user_album (id, title, path, url, user_id, desc_, create_user, create_time, update_user, update_time ) values
     <foreach collection="list" index="index" item="item" separator=",">
-      (#{item.id,jdbcType=BIGINT}, #{item.title,jdbcType=VARCHAR}, #{item.path,jdbcType=VARCHAR}, 
-        #{item.url,jdbcType=VARCHAR}, #{item.userId,jdbcType=BIGINT}, #{item.desc,jdbcType=VARCHAR}, 
-        #{item.createUser,jdbcType=BIGINT}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateUser,jdbcType=BIGINT}, 
-        #{item.updateTime,jdbcType=TIMESTAMP})
+      (#{item.id,jdbcType=BIGINT}, #{item.title,jdbcType=VARCHAR}, #{item.path,jdbcType=VARCHAR},
+      #{item.url,jdbcType=VARCHAR}, #{item.userId,jdbcType=BIGINT}, #{item.desc,jdbcType=VARCHAR},
+      #{item.createUser,jdbcType=BIGINT}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateUser,jdbcType=BIGINT},
+      #{item.updateTime,jdbcType=TIMESTAMP})
     </foreach>
   </insert>
   <insert id="insertSelective" parameterType="com.admin.user.entity.po.UserAlbum">
@@ -379,15 +379,15 @@
     -->
     update user_album
     set id = #{record.id,jdbcType=BIGINT},
-      title = #{record.title,jdbcType=VARCHAR},
-      path = #{record.path,jdbcType=VARCHAR},
-      url = #{record.url,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=BIGINT},
-      desc_ = #{record.desc,jdbcType=VARCHAR},
-      create_user = #{record.createUser,jdbcType=BIGINT},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_user = #{record.updateUser,jdbcType=BIGINT},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    title = #{record.title,jdbcType=VARCHAR},
+    path = #{record.path,jdbcType=VARCHAR},
+    url = #{record.url,jdbcType=VARCHAR},
+    user_id = #{record.userId,jdbcType=BIGINT},
+    desc_ = #{record.desc,jdbcType=VARCHAR},
+    create_user = #{record.createUser,jdbcType=BIGINT},
+    create_time = #{record.createTime,jdbcType=TIMESTAMP},
+    update_user = #{record.updateUser,jdbcType=BIGINT},
+    update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -470,14 +470,14 @@
     -->
     update user_album
     set title = #{title,jdbcType=VARCHAR},
-      path = #{path,jdbcType=VARCHAR},
-      url = #{url,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=BIGINT},
-      desc_ = #{desc,jdbcType=VARCHAR},
-      create_user = #{createUser,jdbcType=BIGINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=BIGINT},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    path = #{path,jdbcType=VARCHAR},
+    url = #{url,jdbcType=VARCHAR},
+    user_id = #{userId,jdbcType=BIGINT},
+    desc_ = #{desc,jdbcType=VARCHAR},
+    create_user = #{createUser,jdbcType=BIGINT},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_user = #{updateUser,jdbcType=BIGINT},
+    update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByAppIdAndId" parameterType="com.admin.user.entity.po.UserAlbum">
@@ -486,14 +486,14 @@
     -->
     update user_album
     set title = #{title,jdbcType=VARCHAR},
-      path = #{path,jdbcType=VARCHAR},
-      url = #{url,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=BIGINT},
-      desc_ = #{desc,jdbcType=VARCHAR},
-      create_user = #{createUser,jdbcType=BIGINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_user = #{updateUser,jdbcType=BIGINT},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    path = #{path,jdbcType=VARCHAR},
+    url = #{url,jdbcType=VARCHAR},
+    user_id = #{userId,jdbcType=BIGINT},
+    desc_ = #{desc,jdbcType=VARCHAR},
+    create_user = #{createUser,jdbcType=BIGINT},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_user = #{updateUser,jdbcType=BIGINT},
+    update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

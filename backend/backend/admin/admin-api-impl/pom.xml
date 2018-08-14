@@ -51,7 +51,7 @@
         </dependency>
         <dependency>
             <groupId>com.backend</groupId>
-            <artifactId>file-repository</artifactId>
+            <artifactId>admin-repository</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

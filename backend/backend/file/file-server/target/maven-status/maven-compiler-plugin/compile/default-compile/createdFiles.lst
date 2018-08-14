@@ -1,11 +1,11 @@
 com\file\utils\datasource\DataSourceFactory.class
 com\file\Swagger2$Swagger2Properties.class
-com\file\inertceptor\AppAuthRestInterceptor.class
 com\file\config\dozer\DozerAutoConfiguration.class
 com\file\FileServiceApplication.class
+com\file\config\datasource\AdminAutoConfiguration$CenterDataSourceProperties.class
+com\file\config\datasource\AdminAutoConfiguration.class
+com\file\inertceptor\AppAuthRestInterceptor.class
 com\file\Swagger2.class
 com\file\config\dozer\DozerConfigurationProperties.class
-com\file\config\datasource\AdminAutoConfiguration$CenterDataSourceProperties.class
 com\file\utils\datasource\DataSourceProperties.class
-com\file\config\datasource\AdminAutoConfiguration.class
 com\file\config\AdminConfiguration.class

@@ -1,5 +1,5 @@
 server:
-  port: 10001     #指定服务端口
+  port: 10002     #指定服务端口
   context-path:
 #  undertow:
 #      io-threads: 4 # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
@@ -9,47 +9,50 @@ server:
 #      direct-buffers: true  # 是否分配的直接内存
 spring:
   application:
-    name: admin-server
+    name: file-server
 boke:
   port:
     eureka: 8761
     nginx: 10001
-    admin: ${server.port}
+    file: ${server.port}
     gate: 9999
   hostname:
-    eureka: 116.89.249.198
-    admin: 116.89.249.198
-    gate: 116.89.249.198
+    eureka: 127.0.0.1
+    file: 127.0.0.1
+    gate: 127.0.0.1
   context-path:
     eureka: /boke-eureka
-    admin: ${server.context-path}
+    file: ${server.context-path}
     gate: /api
-  redirect:
-      index-url:
-      login-url:
+
   mysql:
-    admin:
+    file:
       driver-class-name: com.mysql.jdbc.Driver
       url: jdbc:mysql://127.0.0.1:3306/boke_main
       username: root
-      password: CvlggqCYNiCta8ygufHClXg0UQjdvvFAgUzyKT0J9OiMWOmOJ7wGFSe/u+FMV1AvfcciZ0EHYcaNOgjGje9LkQ==
-
+      password:
+  file:
+    fastdfs:
+      enabled: false
+    remote-uri-prefix: http://192.168.1.124:6080/
+    upload-path-prefix: D:\home\boke\uploadfile\file
+    upload-path-temp: D:\home\boke\uploadfile\temp
 eureka:
   instance:
-    status-page-url: http://${boke.hostname.gate}:${boke.port.gate}${boke.context-path.gate}/admin${server.context-path}/swagger-ui.html
+    status-page-url: http://${boke.hostname.gate}:${boke.port.gate}${boke.context-path.gate}/file${server.context-path}/swagger-ui.html
     preferIpAddress: true
-    ip-address: ${boke.hostname.admin}
-    instance-id: ${boke.hostname.admin}:${server.port}${server.context-path}
+    ip-address: ${boke.hostname.file}
+    instance-id: ${boke.hostname.file}:${server.port}${server.context-path}
   client:
     serviceUrl:
       defaultZone: http://${boke.hostname.eureka}:${boke.port.eureka}${boke.context-path.eureka}/eureka/
 
 swagger2:
-  admin-map:
+  file-map:
     title: 权限服务
     description: 博客个人权限
-    base-path: ${boke.context-path.gate}/admin
-    impl-package: com.admin.user.impl
+    base-path: ${boke.context-path.gate}/file
+    impl-package: com.file.user.impl
   contact-name: 中科恒运
   contact-url: http://www.hengyunsoft.com/
   contact-email: zkhy@hengyunsoft.com

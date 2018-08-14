@@ -7,7 +7,7 @@ import com.file.user.util.ueditor.define.State;
 import com.file.user.util.ueditor.hunter.FileManager;
 import com.file.user.util.ueditor.hunter.ImageHunter;
 import com.file.user.util.ueditor.upload.Uploader;
-import org.json.JSONException;
+import com.alibaba.fastjson.JSONException;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;

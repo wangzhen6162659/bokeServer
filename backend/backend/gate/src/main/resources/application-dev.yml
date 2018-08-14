@@ -3,8 +3,6 @@ server:
 spring:
   application:
     name: gate-server
-  profiles:
-      active: dev
 zuul:
   prefix: /api
   routes:

@@ -2,6 +2,7 @@ package com.admin.config.datasource;
 
 import com.admin.utils.datasource.DataSourceFactory;
 import com.admin.utils.datasource.DataSourceProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.aop.Advisor;
@@ -24,14 +25,17 @@ import org.springframework.transaction.interceptor.TransactionAttribute;
 import org.springframework.transaction.interceptor.TransactionInterceptor;
 
 import javax.sql.DataSource;
+import java.io.PrintStream;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@Slf4j
 //@EnableCaching
 @MapperScan(
-        basePackages = {"com"},
+        basePackages = {"com.admin"},
         annotationClass = Repository.class,
         sqlSessionFactoryRef = "sqlSessionFactory_admin")
 @EnableConfigurationProperties({AdminAutoConfiguration.CenterDataSourceProperties.class})
@@ -60,8 +64,17 @@ public class AdminAutoConfiguration {
     @Bean(name = "sqlSessionFactory_admin")
     public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource_admin") DataSource rdsDataSource) throws Exception {
         System.out.println("----------------SqlSessionFactory");
-        return DataSourceFactory.createSqlSessionFactoryBean(rdsDataSource, new String[]{"classpath:mapper_admin/**/**/*.xml"})
+        SqlSessionFactory object =
+                DataSourceFactory.createSqlSessionFactoryBean(
+                        rdsDataSource, new String[]{"classpath:mapper_admin/**/*.xml"})
                 .getObject();
+//        PrintStream ps = new PrintStream("C:/Users/Administrator/Desktop/log2.txt");
+//        System.setOut(ps);//把创建的打印输出流赋给系统。即系统下次向 ps输出
+//        final Collection<String> mappedStatementNames = object.getConfiguration().getMappedStatementNames();
+//        for (String str : mappedStatementNames){
+//            System.out.println(str);
+//        }
+        return object;
     }
 
     @Bean

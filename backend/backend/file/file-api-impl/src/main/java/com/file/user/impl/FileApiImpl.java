@@ -55,11 +55,11 @@ public class FileApiImpl implements FileApi {
         String realName = fileService.genId().toString();
         String prefix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);// 后缀名
         UploadUtil.write(file.getInputStream(), fileProperties, realName + "." + prefix);
-        String url = "http://192.168.1.124:6080/file/" + realName + "." + prefix;
+        String url =  fileProperties.getRemoteUriPrefix() + "file/" + realName + "." + prefix;
         FileResDTO res = new FileResDTO();
         res.setFileName(file.getOriginalFilename());
         res.setRealName(realName);
-        res.setPath(fileProperties.getUploadPathPrefix() + "\\" + realName + "." + prefix);
+        res.setPath(fileProperties.getUploadPathPrefix() + "/" + realName + "." + prefix);
         res.setExt(prefix);
         res.setMime(file.getContentType());
         res.setSize(String.valueOf(file.getSize()));
