@@ -17,9 +17,9 @@ boke:
     admin: ${server.port}
     gate: 9999
   hostname:
-    eureka: 116.89.249.198
-    admin: 116.89.249.198
-    gate: 116.89.249.198
+    eureka: 123.56.221.77
+    admin: 123.56.221.77
+    gate: 123.56.221.77
   context-path:
     eureka: /boke-eureka
     admin: ${server.context-path}

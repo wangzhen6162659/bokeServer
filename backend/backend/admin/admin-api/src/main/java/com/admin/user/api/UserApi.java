@@ -23,7 +23,7 @@ public interface UserApi {
     Result<UserResDTO> get(@RequestParam(value = "id") Long id);
 
     @RequestMapping(value = "/user/update",method = RequestMethod.POST)
-    Result<UserResDTO> update(@RequestBody UserUpdateDTO dto);
+    Result<UserLoginResDTO> update(@RequestBody UserUpdateDTO dto) throws UnsupportedEncodingException;
 
     @RequestMapping(value = "/user/save",method = RequestMethod.POST)
     Result<UserResDTO> save(@RequestBody UserSaveDTO dto) throws UnsupportedEncodingException;

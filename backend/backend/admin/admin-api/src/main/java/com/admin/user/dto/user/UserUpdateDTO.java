@@ -10,6 +10,8 @@ import java.util.List;
 public class UserUpdateDTO {
     @ApiModelProperty(value = "用户姓名")
     private String name;
+    @ApiModelProperty(value = "用户姓名")
+    private String nickname;
     @ApiModelProperty(value = "用户头像")
     private String photo;
     @ApiModelProperty(value = "用户标签")

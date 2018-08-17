@@ -88,7 +88,7 @@ public class FileApiImpl implements FileApi {
             file.setPath(jsonObject.get("filePath").toString());
             file.setSize(jsonObject.get("size").toString());
             file.setUrl(jsonObject.get("url").toString());
-            file.setUserId(1l);
+            file.setUserId(BaseContextHandler.getAdminId());
             fileService.save(file);
 
         }

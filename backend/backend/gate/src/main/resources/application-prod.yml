@@ -8,14 +8,14 @@ zuul:
   routes:
     admin:
       path: /admin/**
-      url: http://116.89.249.198:10001/
+      url: http://123.56.221.77:10001/
     file:
       path: /file/**
-      url: http://116.89.249.198:10002/
+      url: http://123.56.221.77:10002/
 boke:
   hostname:
-    eureka: 116.89.249.198
-    gate: 116.89.249.198
+    eureka: 123.56.221.77
+    gate: 123.56.221.77
   context-path:
     eureka: /boke-eureka
     gate: /api

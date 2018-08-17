@@ -17,9 +17,9 @@ boke:
     file: ${server.port}
     gate: 9999
   hostname:
-    eureka: 116.89.249.198
-    file: 116.89.249.198
-    gate: 116.89.249.198
+    eureka: 123.56.221.77
+    file: 123.56.221.77
+    gate: 123.56.221.77
   context-path:
     eureka: /boke-eureka
     file: ${server.context-path}
@@ -34,7 +34,7 @@ boke:
   file:
     fastdfs:
       enabled: false
-    remote-uri-prefix: http://116.89.249.198:6080/
+    remote-uri-prefix: http://wzroom.cn/
     upload-path-prefix: /usr/local/home/boke/uploadfile/file
     upload-path-temp: /usr/local/home/boke/uploadfile/temp
 eureka:

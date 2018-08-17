@@ -17,6 +17,7 @@ import com.hengyunsoft.platform.commons.sec.impl.BitEncryptUserToken;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreToken;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,7 +33,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.List;
-
+@Slf4j
 @Api(value = "UserApi", description = "用户管理")
 @RestController
 @RequestMapping("/user")
@@ -90,18 +91,22 @@ public class UserApiImpl implements UserApi {
     @Override
     @ApiOperation(value = "用户修改", notes = "用户修改")
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public Result<UserResDTO> update(@RequestBody UserUpdateDTO dto) {
+    public Result<UserLoginResDTO> update(@RequestBody UserUpdateDTO dto) throws UnsupportedEncodingException {
         Long userId = BaseContextHandler.getAdminId();
-
+        log.info(dto.getAutograph());
+        log.info(dto.getAutograph());
+        log.info(dto.getAutograph());
+        log.info(dto.getAutograph());
+        log.info(dto.getAutograph());
         User user = dozerUtils.map(dto, User.class);
         user.setId(userId);
 
         if (userService.updateByIdSelective(user) > 0) {
             user = userService.getById(userId);
-            UserResDTO res = dozerUtils.map(user, UserResDTO.class);
-            if (res.getSelfLaber() != null) {
-                res.setSelfLabers(Arrays.asList(user.getSelfLaber().split(",")));
-            }
+            String token = setUserToken("/", user.getId().toString(), user.getAccount(), null);
+            user.setNickname(URLEncoder.encode(user.getNickname(),"UTF-8"));
+            UserLoginResDTO res = dozerUtils.map(user, UserLoginResDTO.class);
+            res.setToken(token);
             return Result.success(res);
         }
         return Result.fail("fail");

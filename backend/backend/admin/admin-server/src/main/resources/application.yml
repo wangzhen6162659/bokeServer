@@ -11,7 +11,7 @@ spring:
   application:
     name: admin-server
   profiles:
-      active: prod
+      active: dev
 boke:
   port:
     eureka: 8761
@@ -26,9 +26,6 @@ boke:
     eureka: /boke-eureka
     admin: ${server.context-path}
     gate: /api
-  redirect:
-      index-url:
-      login-url:
   mysql:
     admin:
       driver-class-name: com.mysql.jdbc.Driver

@@ -17,4 +17,6 @@ public class UserLoginResDTO {
     private String nickname;
     @ApiModelProperty(value = "用户头像")
     private String photo;
+    @ApiModelProperty(value = "用户心情")
+    private String autograph;
 }
