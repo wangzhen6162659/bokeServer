@@ -36,9 +36,12 @@ boke:
   file:
     fastdfs:
       enabled: false
-    remote-uri-prefix: http://192.168.1.124:6080/
-    upload-path-prefix: D:\home\boke\uploadfile\file
-    upload-path-temp: D:\home\boke\uploadfile\temp
+    upload-path-prefix: /usr/local/home/boke/uploadfile/file
+  oss:
+    endpoint: oss-cn-shenzhen.aliyuncs.com
+    accessKeyId: LTAIceuhEooYZblM
+    accessKeySecret: EWGOYiEKLyK7Bz7BGlGkufM6RxDDEV
+    bucketName: wzroom
 eureka:
   instance:
     status-page-url: http://${boke.hostname.gate}:${boke.port.gate}${boke.context-path.gate}/file${server.context-path}/swagger-ui.html

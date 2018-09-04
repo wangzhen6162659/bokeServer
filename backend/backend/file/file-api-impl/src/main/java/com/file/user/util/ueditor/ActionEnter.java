@@ -6,6 +6,7 @@ import com.file.user.util.ueditor.define.BaseState;
 import com.file.user.util.ueditor.define.State;
 import com.file.user.util.ueditor.hunter.FileManager;
 import com.file.user.util.ueditor.hunter.ImageHunter;
+import com.file.user.util.ueditor.upload.OssContext;
 import com.file.user.util.ueditor.upload.Uploader;
 import com.alibaba.fastjson.JSONException;
 
@@ -24,14 +25,16 @@ public class ActionEnter {
 	
 	private ConfigManager configManager = null;
 
-	public ActionEnter ( HttpServletRequest request, String rootPath) {
+	private OssContext ossContext = null;
+
+	public ActionEnter (HttpServletRequest request, String rootPath, OssContext ossContext) {
 		
 		this.request = request;
 		this.rootPath = rootPath;
 		this.actionType = request.getParameter( "action" );
 		this.contextPath = request.getContextPath();
 		this.configManager = ConfigManager.getInstance( this.rootPath, this.contextPath, request.getRequestURI() );
-		
+		this.ossContext = ossContext;
 	}
 	
 	public String exec () throws JSONException {
@@ -78,7 +81,7 @@ public class ActionEnter {
 			case ActionMap.UPLOAD_VIDEO:
 			case ActionMap.UPLOAD_FILE:
 				conf = this.configManager.getConfig( actionCode );
-				state = new Uploader( request, conf ).doExec();
+				state = new Uploader( request, conf).doExec(ossContext);
 				break;
 				
 			case ActionMap.CATCH_IMAGE:

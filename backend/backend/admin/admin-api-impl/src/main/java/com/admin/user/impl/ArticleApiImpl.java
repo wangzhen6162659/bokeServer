@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Api(value = "ArticleApi", description = "文章管理")
 @RestController
@@ -40,6 +41,11 @@ public class ArticleApiImpl implements ArticleApi {
     @Autowired
     private DozerUtils dozerUtils;
 
+    /**
+     * 查询我的文章分类
+     * @param id
+     * @return
+     */
     @Override
     @IgnoreToken
     @RequestMapping(value = "/findTypeByUser", method = RequestMethod.GET)
@@ -51,6 +57,11 @@ public class ArticleApiImpl implements ArticleApi {
         return Result.success(dozerUtils.mapList(list, ArticleTypeResDTO.class));
     }
 
+    /**
+     * 获取文章列表
+     * @param articleReqDTO
+     * @return
+     */
     @Override
     @IgnoreToken
     @RequestMapping(value = "/pageByUser", method = RequestMethod.POST)
@@ -65,6 +76,11 @@ public class ArticleApiImpl implements ArticleApi {
         return Result.success(dozerUtils.mapList(list, ArticleResDTO.class));
     }
 
+    /**
+     * 获取文章详情
+     * @param id
+     * @return
+     */
     @Override
     @IgnoreToken
     @RequestMapping(value = "/getArticle", method = RequestMethod.GET)
@@ -76,6 +92,11 @@ public class ArticleApiImpl implements ArticleApi {
         return Result.success(dto);
     }
 
+    /**
+     * 新增文章类型
+     * @param dto
+     * @return
+     */
     @Override
     @RequestMapping(value = "/saveArticleType", method = RequestMethod.POST)
     public Result<Boolean> saveArticleType(@RequestBody ArticleTypeResDTO dto) {
@@ -93,6 +114,11 @@ public class ArticleApiImpl implements ArticleApi {
         return Result.fail("添加失败！");
     }
 
+    /**
+     * 新增文章
+     * @param dto
+     * @return
+     */
     @Override
     @RequestMapping(value = "/saveArticle", method = RequestMethod.POST)
     public Result<Boolean> saveArticle(@RequestBody ArticleSaveReqDTO dto) {
@@ -111,5 +137,37 @@ public class ArticleApiImpl implements ArticleApi {
             return Result.success(true);
         }
         return Result.fail("fail");
+    }
+
+    /**
+     * 删除文章
+     * @param id
+     * @return
+     */
+    @Override
+    @RequestMapping(value = "/deleteArticle", method = RequestMethod.GET)
+    public Result<Boolean> deleteArticle(@RequestParam(value = "id") Long id) {
+        if (articleService.deleteById(id)>0){
+            return Result.success(true);
+        }
+        return Result.fail("删除失败");
+    }
+
+    /**
+     * 删除文章分类
+     * @param id
+     * @return
+     */
+    @Override
+    @RequestMapping(value = "/deleteArticleType", method = RequestMethod.GET)
+    public Result<Boolean> deleteArticleType(@RequestParam(value = "id") Long id) {
+        if (articleTypeService.deleteById(id)>0){
+            ArticleExample example = new ArticleExample();
+            example.createCriteria().andTypeEqualTo(id.toString());
+            List<Article> ids = articleService.find(example);
+            articleService.deleteByIds(ids.stream().map(Article::getId).collect(Collectors.toList()));
+            return Result.success(true);
+        }
+        return Result.fail("删除失败");
     }
 }

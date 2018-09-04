@@ -12,6 +12,9 @@ zuul:
     file:
       path: /file/**
       url: http://localhost:10002/
+    python:
+      path: /ai/**
+      url: http://localhost:10003/
 boke:
   hostname:
     eureka: 127.0.0.1

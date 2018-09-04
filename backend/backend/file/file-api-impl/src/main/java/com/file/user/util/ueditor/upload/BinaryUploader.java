@@ -22,7 +22,7 @@ import java.util.Map;
 public class BinaryUploader {
     static Logger logger = LoggerFactory.getLogger(BinaryUploader.class);
 
-    public static final State save(HttpServletRequest request, Map<String, Object> conf) {
+    public static final State save(HttpServletRequest request, Map<String, Object> conf, OssContext ossContext) {
 
         boolean isAjaxUpload = request.getHeader("X_Requested_With") != null;
 
@@ -62,19 +62,17 @@ public class BinaryUploader {
             //在此处调用ftp的上传图片的方法将图片上传到文件服务器
             String path = physicalPath.substring(0, physicalPath.lastIndexOf("/"));
             String picName = physicalPath.substring(physicalPath.lastIndexOf("/") + 1, physicalPath.length());
-            State storageState = StorageManager.saveFileByInputStream(request, is, path, picName, maxSize);
-
+            State storageState = new BaseState(true);
+            String url = OssUploader.getFileUrl(file, path, ossContext);
             is.close();
 
-            if (storageState.isSuccess()) {
-                storageState.putInfo("type", suffix);
-                storageState.putInfo("original", originFileName + suffix);
-                storageState.putInfo("filePath", path + "/" + picName);
-                storageState.putInfo("size", file.getSize());
-                storageState.putInfo("filename", file.getName());
-                storageState.putInfo("mime", file.getContentType());
-                storageState.putInfo("url", conf.get("fileUrl").toString() + "/" + savePath);
-            }
+            storageState.putInfo("type", suffix);
+            storageState.putInfo("original", originFileName + suffix);
+//                storageState.putInfo("filePath", path + "/" + picName);
+            storageState.putInfo("size", file.getSize());
+            storageState.putInfo("filename", file.getName());
+            storageState.putInfo("mime", file.getContentType());
+            storageState.putInfo("url", url);
 
             return storageState;
         } catch (Exception e) {

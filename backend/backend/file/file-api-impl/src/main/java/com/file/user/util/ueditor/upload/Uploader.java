@@ -16,7 +16,7 @@ public class Uploader {
 		this.conf = conf;
 	}
 
-	public final State doExec() {
+	public final State doExec(OssContext ossContext) {
 		String filedName = (String) this.conf.get("fieldName");
 		State state = null;
 
@@ -24,7 +24,7 @@ public class Uploader {
 			state = Base64Uploader.save(this.request.getParameter(filedName),
 					this.conf);
 		} else {
-			state = BinaryUploader.save(this.request, this.conf);
+			state = BinaryUploader.save(this.request, this.conf, ossContext);
 		}
 
 		return state;

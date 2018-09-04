@@ -27,4 +27,10 @@ public interface ArticleApi {
 
     @RequestMapping(value = "/article/saveArticle",method = RequestMethod.POST)
     Result<Boolean> saveArticle(@RequestBody ArticleSaveReqDTO dto);
+
+    @RequestMapping(value = "/article/deleteArticle",method = RequestMethod.GET)
+    Result<Boolean> deleteArticle(@RequestParam(value = "id") Long id);
+
+    @RequestMapping(value = "/article/deleteArticleType",method = RequestMethod.GET)
+    Result<Boolean> deleteArticleType(@RequestParam(value = "id") Long id);
 }

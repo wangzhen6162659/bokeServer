@@ -21,5 +21,5 @@ public interface FileApi {
     Result<FileResDTO> upload(@RequestBody MultipartFile file) throws IOException;
 
     @RequestMapping(value = "/file/exec",method = RequestMethod.POST)
-    String exec(HttpServletRequest request) throws UnsupportedEncodingException;
+    Object exec(HttpServletRequest request) throws UnsupportedEncodingException;
 }
