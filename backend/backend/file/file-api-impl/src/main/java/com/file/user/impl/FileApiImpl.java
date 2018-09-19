@@ -105,4 +105,13 @@ public class FileApiImpl implements FileApi {
         }
         return JSONObject.parse(exec);
     }
+
+    @Override
+    @ApiOperation(value = "人脸数据上传", notes = "人脸数据上传   ")
+    public Result<Boolean> saveFace(MultipartFile file) {
+        Long id = BaseContextHandler.getAdminId();
+
+
+        return null;
+    }
 }

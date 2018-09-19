@@ -22,4 +22,7 @@ public interface FileApi {
 
     @RequestMapping(value = "/file/exec",method = RequestMethod.POST)
     Object exec(HttpServletRequest request) throws UnsupportedEncodingException;
+
+    @RequestMapping(value = "/file/saveFace",method = RequestMethod.POST)
+    Result<Boolean> saveFace(@RequestBody MultipartFile file);
 }

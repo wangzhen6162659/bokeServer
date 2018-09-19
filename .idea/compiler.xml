@@ -48,6 +48,7 @@
       <module name="commons-build" target="1.8" />
       <module name="core" target="1.8" />
       <module name="eureka-service" target="1.8" />
+      <module name="face-demo" target="1.8" />
       <module name="file" target="1.8" />
       <module name="file-api" target="1.8" />
       <module name="file-api-impl" target="1.8" />

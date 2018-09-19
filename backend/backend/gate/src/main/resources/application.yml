@@ -5,7 +5,16 @@ spring:
     name: gate-server
   profiles:
       active: dev
+  servlet:
+    multipart:
+      max-file-size: 512Mb
+  http:
+    multipart:
+      max-request-size: 512Mb
+
 zuul:
+  ratelimit: # 网关限流
+    enabled: false  # 本地启动， 无需验证
   prefix: /api
   routes:
     admin:
