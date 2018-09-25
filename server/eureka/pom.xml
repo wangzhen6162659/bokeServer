@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.3.5.RELEASE</version>   <!--配合spring cloud版本-->
+		<version>2.0.2.RELEASE</version>   <!--配合spring cloud版本-->
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
