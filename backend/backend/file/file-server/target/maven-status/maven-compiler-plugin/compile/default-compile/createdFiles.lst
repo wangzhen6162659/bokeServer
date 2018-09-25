@@ -1,6 +1,7 @@
 com\file\utils\datasource\DataSourceFactory.class
 com\file\Swagger2$Swagger2Properties.class
 com\file\config\dozer\DozerAutoConfiguration.class
+com\file\config\WebConfig.class
 com\file\FileServiceApplication.class
 com\file\config\datasource\AdminAutoConfiguration$CenterDataSourceProperties.class
 com\file\config\datasource\AdminAutoConfiguration.class
