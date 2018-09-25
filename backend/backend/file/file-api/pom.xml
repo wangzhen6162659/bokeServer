@@ -18,8 +18,9 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.hengyunsoft</groupId>
-            <artifactId>hengyun-gxqpt-core</artifactId>
+            <groupId>com.backend</groupId>
+            <artifactId>core</artifactId>
+            <version>1.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
