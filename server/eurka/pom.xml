@@ -6,6 +6,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>eureka-service</artifactId>
 	<packaging>jar</packaging>
+	<name>eureka</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
