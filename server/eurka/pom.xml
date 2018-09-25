@@ -6,7 +6,6 @@
 	<groupId>com.example</groupId>
 	<artifactId>eureka-service</artifactId>
 	<packaging>jar</packaging>
-	<name>eureka</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -49,6 +48,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>eureka</finalName>
 		<plugins>
 			<!--使用该插件打包-->
 			<plugin>
