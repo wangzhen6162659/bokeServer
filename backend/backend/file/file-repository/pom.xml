@@ -84,7 +84,7 @@
         </resources>
         <plugins>
             <plugin>
-                <groupId>com.hengyunsoft.mybatis.generator</groupId>
+                <groupId>com.notex.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
             </plugin>
         </plugins>
