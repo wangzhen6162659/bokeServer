@@ -19,6 +19,11 @@
 	</modules>
 	<description>Demo project for Spring Boot</description>
 
+	<!--<parent>-->
+		<!--<groupId>org.springframework.boot</groupId>-->
+		<!--<artifactId>spring-boot-starter-parent</artifactId>-->
+		<!--<version>2.0.0.BUILD-SNAPSHOT</version>-->
+	<!--</parent>-->
 
 	<properties>
 		<spring-boot-admin.version>1.5.3</spring-boot-admin.version>
@@ -26,6 +31,31 @@
 	<dependencyManagement>
 		<dependencies>
 
+			<!--<dependency>-->
+				<!--<groupId>de.codecentric</groupId>-->
+				<!--<artifactId>spring-boot-admin-server</artifactId>-->
+				<!--<version>${spring-boot-admin.version}</version>-->
+			<!--</dependency>-->
+			<!--<dependency>-->
+				<!--<groupId>de.codecentric</groupId>-->
+				<!--<artifactId>spring-boot-admin-server-ui</artifactId>-->
+				<!--<version>${spring-boot-admin.version}</version>-->
+			<!--</dependency>-->
+			<!--<dependency>-->
+				<!--<groupId>de.codecentric</groupId>-->
+				<!--<artifactId>spring-boot-admin-server-ui-login</artifactId>-->
+				<!--<version>${spring-boot-admin.version}</version>-->
+			<!--</dependency>-->
+			<!--<dependency>-->
+				<!--<groupId>de.codecentric</groupId>-->
+				<!--<artifactId>spring-boot-admin-server-ui-hystrix</artifactId>-->
+				<!--<version>${spring-boot-admin.version}</version>-->
+			<!--</dependency>-->
+			<!--<dependency>-->
+				<!--<groupId>de.codecentric</groupId>-->
+				<!--<artifactId>spring-boot-admin-server-ui-turbine</artifactId>-->
+				<!--<version>${spring-boot-admin.version}</version>-->
+			<!--</dependency>-->
 		</dependencies>
 	</dependencyManagement>
 
