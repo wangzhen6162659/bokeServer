@@ -6,20 +6,19 @@
     <groupId>com.example</groupId>
     <artifactId>eureka-service</artifactId>
     <packaging>jar</packaging>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>   <!--配合spring cloud版本-->
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
     <properties>
         <!--设置字符编码及java版本-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <spring-boot-admin.version>2.0.0.BUILD-SNAPSHOT</spring-boot-admin.version>
     </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.BUILD-SNAPSHOT</version>   <!--配合spring cloud版本-->
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
 
     <dependencies>
         <!--增加eureka-server的依赖-->
