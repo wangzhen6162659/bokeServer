@@ -20,8 +20,8 @@ zuul:
       url: http://${boke.hostname.gate}:10002/
 boke:
   hostname:
-    eureka: 127.0.0.1
-    gate: 127.0.0.1
+    eureka: 123.56.221.77
+    gate: 123.56.221.77
   context-path:
     eureka: /boke-eureka
     gate: /api
