@@ -18,6 +18,9 @@ zuul:
     file:
       path: /file/**
       url: http://${boke.hostname.gate}:10002/
+    python:
+      path: /ai/**
+      url: http://${boke.hostname.gate}:10003/
 boke:
   hostname:
     eureka: 123.56.221.77
@@ -27,9 +30,8 @@ boke:
     gate: /api
   port:
     eureka: 8761
-    gate: 9999
 eureka:
-   # 是否采用ip
+    # 是否采用ip
     preferIpAddress: true
     # ip地址
     ip-address: ${boke.hostname.gate}
