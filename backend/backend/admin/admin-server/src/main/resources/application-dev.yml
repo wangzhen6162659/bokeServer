@@ -16,7 +16,7 @@ boke:
     eureka: 8761
     nginx: 10001
     admin: ${server.port}
-    gate: 9999
+    gate: 10000
   hostname:
     eureka: 127.0.0.1
     admin: 127.0.0.1
