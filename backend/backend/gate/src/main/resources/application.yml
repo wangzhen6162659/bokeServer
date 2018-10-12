@@ -1,7 +1,7 @@
 server:
   port: 9999
   servlet:
-      context-path: /api
+      context-path:
 spring:
   application:
     name: gate-server
