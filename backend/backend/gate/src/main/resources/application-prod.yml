@@ -27,7 +27,7 @@ boke:
     gate: /api
   port:
     eureka: 8761
-    gate: 10002
+    gate: 9999
 eureka:
    # 是否采用ip
     preferIpAddress: true
