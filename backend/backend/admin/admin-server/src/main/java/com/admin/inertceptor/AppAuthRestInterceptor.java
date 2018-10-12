@@ -7,7 +7,6 @@ import com.hengyunsoft.platform.commons.sec.impl.BitEncryptUserToken;
 import com.hengyunsoft.security.auth.client.annotation.AppToken;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreAppToken;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreToken;
-import com.hengyunsoft.security.auth.client.config.ServiceAuthConfig;
 import com.hengyunsoft.security.auth.common.util.jwt.IJWTInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -16,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,6 +44,9 @@ public class AppAuthRestInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if (ResourceHttpRequestHandler.class.isInstance(handler)){
+            return true;
+        }
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         
         if(isIgnoreToken(handlerMethod)) {

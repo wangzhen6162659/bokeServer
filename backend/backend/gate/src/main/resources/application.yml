@@ -6,11 +6,9 @@ spring:
   profiles:
       active: dev
   servlet:
-    multipart:
-      max-file-size: 512Mb
-  http:
-    multipart:
-      max-request-size: 512Mb
+      multipart:
+        max-file-size: 512MB
+        max-request-size: 512MB     # Max file size，默认1M
 
 zuul:
   ratelimit: # 网关限流

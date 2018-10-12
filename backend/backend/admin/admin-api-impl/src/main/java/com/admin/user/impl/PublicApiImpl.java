@@ -30,13 +30,13 @@ import java.util.Map;
 @RestController
 @RequestMapping("public")
 public class PublicApiImpl implements PublicApi {
-    // 文件上传路径
-    @Value("${boke.fileuploadPath}")
-    private String fileuploadPath;
-
-    // 文件读取路径
-    @Value("${boke.httpPath}")
-    private String httpPath;
+//    // 文件上传路径
+//    @Value("${boke.fileuploadPath}")
+//    private String fileuploadPath;
+//
+//    // 文件读取路径
+//    @Value("${boke.httpPath}")
+//    private String httpPath;
 
     @Autowired
     PublicService publicService;

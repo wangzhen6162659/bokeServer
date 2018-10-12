@@ -14,8 +14,10 @@
         <module name="auth-api" />
         <module name="auth-client" />
         <module name="auth-common" />
+        <module name="cloud-core" />
         <module name="commons" />
         <module name="core" />
+        <module name="eureka" />
         <module name="eureka-service" />
         <module name="file-api" />
         <module name="file-api-impl" />
@@ -44,9 +46,12 @@
       <module name="auth-server" target="1.8" />
       <module name="backend" target="1.8" />
       <module name="build" target="1.8" />
+      <module name="cloud-build" target="1.8" />
+      <module name="cloud-core" target="1.8" />
       <module name="commons" target="1.8" />
       <module name="commons-build" target="1.8" />
       <module name="core" target="1.8" />
+      <module name="eureka" target="1.8" />
       <module name="eureka-service" target="1.8" />
       <module name="face-demo" target="1.8" />
       <module name="file" target="1.8" />
@@ -62,6 +67,7 @@
       <module name="hengyun-gxqpt-build" target="1.8" />
       <module name="hengyun-gxqpt-core" target="1.8" />
       <module name="hengyun-gxqpt-util" target="1.8" />
+      <module name="notex-boot-dependencies" target="1.8" />
       <module name="server" target="1.8" />
       <module name="util" target="1.8" />
     </bytecodeTargetLevel>

@@ -5,7 +5,7 @@
     <parent>
         <artifactId>admin</artifactId>
         <groupId>com.backend</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>2.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -21,8 +21,7 @@
         </dependency>
         <dependency>
             <groupId>com.backend</groupId>
-            <artifactId>core</artifactId>
-            <version>1.1-SNAPSHOT</version>
+            <artifactId>cloud-core</artifactId>
         </dependency>
         <!--<dependency>-->
             <!--<groupId>org.springframework</groupId>-->
@@ -53,12 +52,10 @@
         <dependency>
             <groupId>com.backend</groupId>
             <artifactId>admin-repository</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.backend</groupId>
             <artifactId>commons</artifactId>
-            <version>1.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -67,12 +64,10 @@
         <dependency>
             <groupId>com.backend</groupId>
             <artifactId>api-commons</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.backend</groupId>
             <artifactId>auth-client</artifactId>
-            <version>1.1-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

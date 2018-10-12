@@ -3,15 +3,19 @@ server:
 spring:
   application:
     name: gate-server
+  servlet:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB     # Max file size，默认1M
 zuul:
   prefix: /api
   routes:
     admin:
       path: /admin/**
-      url: http://localhost:10001/
+      url: http://${boke.hostname.gate}:10001/
     file:
       path: /file/**
-      url: http://localhost:10002/
+      url: http://${boke.hostname.gate}:10002/
     python:
       path: /ai/**
       url: http://localhost:10003/
@@ -24,7 +28,6 @@ boke:
     gate: /api
   port:
     eureka: 8761
-    gate: 10002
 eureka:
   client:
     serviceUrl:

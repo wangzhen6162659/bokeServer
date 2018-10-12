@@ -19,10 +19,12 @@ import com.hengyunsoft.commons.utils.context.DozerUtils;
 import com.hengyunsoft.exception.BizException;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreToken;
 import io.swagger.annotations.ApiOperation;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,6 +38,7 @@ import java.util.Date;
 
 @RestController
 @Slf4j
+@RequestMapping(value = "file")
 public class FileApiImpl implements FileApi {
     @Autowired
     DozerUtils dozerUtils;
@@ -47,6 +50,7 @@ public class FileApiImpl implements FileApi {
     OssContext ossContext;
 
     @Override
+    @RequestMapping(value = "/get",method = RequestMethod.GET)
     public FileResDTO get(@RequestParam(value = "id") Long id) {
         FileExample example = new FileExample();
         example.createCriteria().andIdEqualTo(id);
@@ -56,7 +60,9 @@ public class FileApiImpl implements FileApi {
     }
 
     @Override
-    @ApiOperation(value = "文件秒传", notes = "文件秒传   ")
+    @ApiOperation(value = "文件秒传", notes = "文件秒传")
+    @IgnoreToken
+    @RequestMapping(value = "/upload",method = RequestMethod.POST)
     public Result<FileResDTO> upload(@RequestBody MultipartFile file) throws IOException {
         Long userId = BaseContextHandler.getAdminId();
 
@@ -83,6 +89,7 @@ public class FileApiImpl implements FileApi {
 
     @Override
     @IgnoreToken
+    @RequestMapping(value = "/exec",method = RequestMethod.POST)
     public Object exec(HttpServletRequest request) throws UnsupportedEncodingException {
         request.setCharacterEncoding("utf-8");
         String rootPath = request.getRealPath("/");
@@ -107,8 +114,10 @@ public class FileApiImpl implements FileApi {
     }
 
     @Override
+    @RequestMapping(value = "/saveFace",method = RequestMethod.POST)
+    @IgnoreToken
     @ApiOperation(value = "人脸数据上传", notes = "人脸数据上传   ")
-    public Result<Boolean> saveFace(MultipartFile file) {
+    public Result<Boolean> saveFace() {
         Long id = BaseContextHandler.getAdminId();
 
 

@@ -1,6 +1,7 @@
 server:
   port: 10002     #指定服务端口
-  context-path:
+  servlet:
+    context-path:
 #  undertow:
 #      io-threads: 4 # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
 #      worker-threads: 80  # 阻塞任务线程池, 当执行类似servlet请求阻塞操作, undertow会从这个线程池中取得线程,它的值设置取决于系统的负载
@@ -24,7 +25,7 @@ boke:
     gate: 127.0.0.1
   context-path:
     eureka: /boke-eureka
-    file: ${server.context-path}
+    file: ${server.servlet.context-path}
     gate: /api
 
   mysql:
@@ -44,10 +45,10 @@ boke:
     bucketName: wzroom
 eureka:
   instance:
-    status-page-url: http://${boke.hostname.gate}:${boke.port.gate}${boke.context-path.gate}/file${server.context-path}/swagger-ui.html
+    status-page-url: http://${boke.hostname.gate}:${boke.port.gate}${boke.context-path.gate}/file${server.servlet.context-path}/swagger-ui.html
     preferIpAddress: true
     ip-address: ${boke.hostname.file}
-    instance-id: ${boke.hostname.file}:${server.port}${server.context-path}
+    instance-id: ${boke.hostname.file}:${server.port}${server.servlet.context-path}
   client:
     serviceUrl:
       defaultZone: http://${boke.hostname.eureka}:${boke.port.eureka}${boke.context-path.eureka}/eureka/
@@ -56,7 +57,7 @@ swagger2:
   file-map:
     title: 权限服务
     description: 博客个人权限
-    base-path: ${boke.context-path.gate}/file
+#    base-path: ${boke.context-path.gate}/file
     impl-package: com.file.user.impl
   contact-name: 中科恒运
   contact-url: http://www.hengyunsoft.com/
