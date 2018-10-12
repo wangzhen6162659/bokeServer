@@ -88,7 +88,6 @@ public class FileApiImpl implements FileApi {
     }
 
     @Override
-    @IgnoreToken
     @RequestMapping(value = "/exec",method = RequestMethod.POST)
     public Object exec(HttpServletRequest request) throws UnsupportedEncodingException {
         request.setCharacterEncoding("utf-8");
