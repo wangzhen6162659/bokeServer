@@ -27,9 +27,12 @@ boke:
     eureka: 8761
     gate: 10002
 eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://${boke.hostname.eureka}:${boke.port.eureka}${boke.context-path.eureka}/eureka/
+   # 是否采用ip
+    preferIpAddress: true
+    # ip地址
+    ip-address: ${boke.hostname.gate}
+    # 实例id
+    instance-id: ${boke.hostname.gate}:${server.port}${server.servlet.context-path}
 gate:
   ignore:
     start-with-list:
