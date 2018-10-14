@@ -75,8 +75,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 "/v2/api-docs",
                 "/swagger-resources/**",
                 "/cache/**",
-                "/swagger-ui.html**",
-                "/file/exec",
+                "/swagger-ui.html**"
         };
         Collections.addAll(list, urls);
         return list;

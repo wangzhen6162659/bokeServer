@@ -1,5 +1,6 @@
 package com.file;
 
+import com.hengyunsoft.commons.adapter.Swagger2WebMvcConfigurerAdapter;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -10,11 +11,16 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Parameter;
+import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.paths.RelativePathProvider;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,7 +33,7 @@ import java.util.Map;
 @Configuration
 @EnableSwagger2
 @EnableConfigurationProperties({Swagger2.Swagger2Properties.class})
-public class Swagger2{
+public class Swagger2 extends Swagger2WebMvcConfigurerAdapter {
     private final static String MODULAR_FILE = "file";
     @Autowired
     Swagger2Properties swagger2Properties;
@@ -40,16 +46,17 @@ public class Swagger2{
 
     @Bean
     public Docket createFileInsideApi() {
+        List<Parameter> pars = getParameters();
+        ArrayList<ResponseMessage> responseMessages = getResponseMessages();
         String basePackage = swagger2Properties.getFileMap().get("impl-package");
         String basePath = swagger2Properties.getFileMap().get("base-path");
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .groupName(MODULAR_FILE)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage(basePackage))
-                .paths(PathSelectors.any())
-                .build()
-                .pathMapping(basePath);
+        return getDocket(swagger2Properties.getFileMap(),basePackage,"insid_file",pars,responseMessages)
+                .pathProvider(new RelativePathProvider(servletContext) {
+                    @Override
+                    public String getApplicationBasePath() {
+                        return basePath + super.getApplicationBasePath();
+                    }
+                });
     }
     private ApiInfo apiInfo() {// 创建API的基本信息，这些信息会在Swagger UI中进行显示
         return new ApiInfoBuilder()
@@ -60,11 +67,16 @@ public class Swagger2{
                 .build();
     }
 
+    @Override
+    protected Swagger2BaseProperties getSwagger2BaseProperties() {
+        return swagger2Properties;
+    }
+
     @ConfigurationProperties(
             prefix = "swagger2"
     )
     @Data
-    static class Swagger2Properties {
+    static class Swagger2Properties extends Swagger2BaseProperties{
         private Map<String, String> fileMap = new LinkedHashMap<>();
 //        private Map<String, String> developerMap = new LinkedHashMap<>();
     }
