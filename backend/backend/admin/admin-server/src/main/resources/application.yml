@@ -50,7 +50,6 @@ swagger2:
     description: 博客个人权限
     base-path: ${boke.context-path.gate}/admin
     impl-package: com.admin.user.impl
-  contact-name: 中科恒运
-  contact-url: http://www.hengyunsoft.com/
-  contact-email: zkhy@hengyunsoft.com
+  contact-name: wz
+  contact-email: wz6162659@163.com
   host: ${boke.hostname.eureka}:${boke.port.nginx}
