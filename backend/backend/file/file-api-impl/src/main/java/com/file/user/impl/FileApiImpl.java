@@ -17,6 +17,7 @@ import com.hengyunsoft.commons.context.BaseContextHandler;
 import com.hengyunsoft.commons.exception.core.ExceptionCode;
 import com.hengyunsoft.commons.utils.context.DozerUtils;
 import com.hengyunsoft.exception.BizException;
+import com.hengyunsoft.security.auth.client.annotation.IgnoreConfig;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreToken;
 import io.swagger.annotations.ApiOperation;
 import jdk.nashorn.internal.ir.annotations.Ignore;
@@ -88,14 +89,14 @@ public class FileApiImpl implements FileApi {
     }
 
     @Override
-    @IgnoreToken
+    @IgnoreConfig
     @RequestMapping(value = "/exec",method = RequestMethod.POST)
     public Object exec(HttpServletRequest request) throws UnsupportedEncodingException {
         request.setCharacterEncoding("utf-8");
         String rootPath = request.getRealPath("/");
-        if (!request.getParameter("action").equals("config") && BaseContextHandler.getAdminId() == -1) {
-            return new BizException(ExceptionCode.JWT_TOKEN_OVER.getCode(), ExceptionCode.JWT_TOKEN_OVER.getMsg());
-        }
+//        if (!request.getParameter("action").equals("config") && BaseContextHandler.getAdminId() == -1) {
+//            return new BizException(ExceptionCode.JWT_TOKEN_OVER.getCode(), ExceptionCode.JWT_TOKEN_OVER.getMsg());
+//        }
         String exec = new ActionEnter(request, rootPath, ossContext).exec();
         if (!request.getParameter("action").equals("config")) {
             JSONObject jsonObject = JSON.parseObject(exec);
