@@ -35,6 +35,7 @@ public enum ExceptionCode implements BaseExceptionCode {
     JWT_PARSER_TOKEN_FAIL(40005, "解析token失败"),
     JWT_APPID_SECRET_INVALID(40006, "获取 access_token 时 AppSecret 错误，或者 AppId 无效！"),
     JWT_APPID_ENABLED(40007, "AppId 已经被禁用！请联系管理员"),
+    JWT_TOKEN_OVER(40008, "登陆超时,请重新登录！"),
     //jwt token 相关 end
 
     //文章相关//

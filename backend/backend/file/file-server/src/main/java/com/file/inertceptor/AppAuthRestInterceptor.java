@@ -5,6 +5,7 @@ import com.hengyunsoft.exception.BizException;
 import com.hengyunsoft.platform.commons.sec.impl.BitEncryptUserToken;
 import com.hengyunsoft.security.auth.client.annotation.AppToken;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreAppToken;
+import com.hengyunsoft.security.auth.client.annotation.IgnoreConfig;
 import com.hengyunsoft.security.auth.client.annotation.IgnoreToken;
 import com.hengyunsoft.security.auth.common.util.jwt.IJWTInfo;
 import org.apache.commons.lang3.StringUtils;
@@ -50,6 +51,9 @@ public class AppAuthRestInterceptor extends HandlerInterceptorAdapter {
         
         if(isIgnoreToken(handlerMethod)) {
         	return true;
+        }
+        if (isIgnoreConfig(handlerMethod) && request.getParameter("action").equals("config")){
+            return true;
         }
         String clazzName = handlerMethod.getBeanType().getName();
         try {
@@ -99,6 +103,14 @@ public class AppAuthRestInterceptor extends HandlerInterceptorAdapter {
         }
 		return annotation != null;
 	}
+
+    private boolean isIgnoreConfig(HandlerMethod handlerMethod) {
+        Annotation annotation = handlerMethod.getBeanType().getAnnotation(IgnoreConfig.class);
+        if (annotation == null) {
+            annotation = handlerMethod.getMethodAnnotation(IgnoreConfig.class);
+        }
+        return annotation != null;
+    }
 
     private boolean isIgnoreToken(HandlerMethod handlerMethod) {
     	Annotation annotation = handlerMethod.getBeanType().getAnnotation(IgnoreAppToken.class);

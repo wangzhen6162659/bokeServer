@@ -88,12 +88,13 @@ public class FileApiImpl implements FileApi {
     }
 
     @Override
+    @IgnoreToken
     @RequestMapping(value = "/exec",method = RequestMethod.POST)
     public Object exec(HttpServletRequest request) throws UnsupportedEncodingException {
         request.setCharacterEncoding("utf-8");
         String rootPath = request.getRealPath("/");
         if (!request.getParameter("action").equals("config") && BaseContextHandler.getAdminId() == -1) {
-            return new BizException(ExceptionCode.JWT_TOKEN_EXPIRED.getCode(), ExceptionCode.JWT_TOKEN_EXPIRED.getMsg());
+            return new BizException(ExceptionCode.JWT_TOKEN_OVER.getCode(), ExceptionCode.JWT_TOKEN_OVER.getMsg());
         }
         String exec = new ActionEnter(request, rootPath, ossContext).exec();
         if (!request.getParameter("action").equals("config")) {
