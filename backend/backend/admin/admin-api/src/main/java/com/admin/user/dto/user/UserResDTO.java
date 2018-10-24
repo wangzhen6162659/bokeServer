@@ -1,5 +1,6 @@
 package com.admin.user.dto.user;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -8,11 +9,15 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@ApiModel(value = "UserRes", description = "用户返回实体")
 public class UserResDTO {
+    @ApiModelProperty(value = "id")
     private Long id;
 
+    @ApiModelProperty(value = "账户")
     private String account;
 
+    @ApiModelProperty(value = "token")
     private String token;
 
     /**
@@ -20,8 +25,10 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "姓名")
     private String name;
 
+    @ApiModelProperty(value = "昵称")
     private String nickname;
 
     /**
@@ -29,6 +36,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "性别")
     private String sex;
 
     /**
@@ -36,6 +44,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "生日")
     private Date birthday;
 
     /**
@@ -43,6 +52,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "民族")
     private String nation;
 
     /**
@@ -50,6 +60,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "照片")
     private String photo;
 
     /**
@@ -57,6 +68,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "标签")
     private String selfLaber;
 
     /**
@@ -64,6 +76,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "手机")
     private String phone;
 
     /**
@@ -71,6 +84,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "心情")
     private String autograph;
 
     /**
@@ -78,6 +92,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "最后登录")
     private Date lastLogin;
 
     /**
@@ -85,6 +100,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "创建人id")
     private Long createUser;
 
     /**
@@ -92,6 +108,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "创建时间")
     private Date createTime;
 
     /**
@@ -99,6 +116,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "更新人id")
     private Long updateUser;
 
     /**
@@ -106,6 +124,7 @@ public class UserResDTO {
      *
      * @mbggenerated
      */
+    @ApiModelProperty(value = "更新时间")
     private Date updateTime;
 
     @ApiModelProperty(value = "用户标签")
