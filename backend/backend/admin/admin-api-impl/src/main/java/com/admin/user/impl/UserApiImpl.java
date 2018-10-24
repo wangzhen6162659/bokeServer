@@ -46,7 +46,7 @@ public class UserApiImpl implements UserApi {
     DozerUtils dozerUtils;
 
     @Override
-    @ApiOperation(value = "查找用户", notes = "查找用户")
+    @ApiOperation(value = "查找用户", notes = "根据id查找用户")
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public Result<UserResDTO> get(@RequestParam(value = "id") Long id) {
         UserExample example = new UserExample();
@@ -61,7 +61,7 @@ public class UserApiImpl implements UserApi {
 
     @Override
     @IgnoreToken
-    @ApiOperation(value = "用户登录", notes = "用户登录")
+    @ApiOperation(value = "用户登录", notes = "根据用户登录实体进行登录")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result<UserLoginResDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (StringUtils.isEmpty(userLoginDTO.getAccount())){
@@ -89,7 +89,7 @@ public class UserApiImpl implements UserApi {
     }
 
     @Override
-    @ApiOperation(value = "用户修改", notes = "用户修改")
+    @ApiOperation(value = "用户修改", notes = "根据用户修改实体进行修改")
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public Result<UserLoginResDTO> update(@RequestBody UserUpdateDTO dto) throws UnsupportedEncodingException {
         Long userId = BaseContextHandler.getAdminId();
@@ -114,7 +114,7 @@ public class UserApiImpl implements UserApi {
 
     @Override
     @IgnoreToken
-    @ApiOperation(value = "用户新增", notes = "用户新增")
+    @ApiOperation(value = "用户新增", notes = "根据新增实体进行用户新增")
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public Result<UserResDTO> save(@RequestBody UserSaveDTO dto) throws UnsupportedEncodingException {
         UserExample example = new UserExample();
