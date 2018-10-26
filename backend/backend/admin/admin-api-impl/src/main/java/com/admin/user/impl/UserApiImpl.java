@@ -80,6 +80,7 @@ public class UserApiImpl implements UserApi {
         if (user != null) {
             token = setUserToken("/", user.getId().toString(), user.getAccount(), null);
             user.setNickname(URLEncoder.encode(user.getNickname(),"UTF-8"));
+            user.setAutograph(URLEncoder.encode(user.getAutograph(),"UTF-8"));
         } else {
             return Result.fail("用户名或密码错误！");
         }
