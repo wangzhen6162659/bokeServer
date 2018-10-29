@@ -2,9 +2,6 @@ server:
   port: 10002     #指定服务端口
   servlet:
     context-path:
-  http:
-    multipart:
-      location: /root/tmp
 #  undertow:
 #      io-threads: 4 # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
 #      worker-threads: 80  # 阻塞任务线程池, 当执行类似servlet请求阻塞操作, undertow会从这个线程池中取得线程,它的值设置取决于系统的负载
