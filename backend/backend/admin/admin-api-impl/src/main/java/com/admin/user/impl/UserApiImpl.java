@@ -20,6 +20,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -117,7 +119,10 @@ public class UserApiImpl implements UserApi {
     @IgnoreToken
     @ApiOperation(value = "用户新增", notes = "根据新增实体进行用户新增")
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public Result<UserResDTO> save(@RequestBody UserSaveDTO dto) throws UnsupportedEncodingException {
+    public Result<UserResDTO> save(@Valid @RequestBody UserSaveDTO dto, BindingResult bindingResult) throws UnsupportedEncodingException {
+        if(bindingResult.hasErrors()){
+            return Result.fail("错误信息："+bindingResult.getFieldError().getDefaultMessage());
+        }
         UserExample example = new UserExample();
         example.createCriteria().andAccountEqualTo(dto.getAccount());
         if (userService.find(example).size()>0){

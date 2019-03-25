@@ -7,6 +7,7 @@ import com.admin.user.dto.user.UserSaveDTO;
 import com.admin.user.dto.user.UserUpdateDTO;
 import com.hengyunsoft.base.Result;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +27,7 @@ public interface UserApi {
     Result<UserLoginResDTO> update(@RequestBody UserUpdateDTO dto) throws UnsupportedEncodingException;
 
     @RequestMapping(value = "/user/save",method = RequestMethod.POST)
-    Result<UserResDTO> save(@RequestBody UserSaveDTO dto) throws UnsupportedEncodingException;
+    Result<UserResDTO> save(@RequestBody UserSaveDTO dto, BindingResult bindingResult) throws UnsupportedEncodingException;
 
     @RequestMapping(value = "/user/login",method = RequestMethod.POST)
     Result<UserLoginResDTO> login(@RequestBody UserLoginDTO userLoginDTO, HttpServletRequest request, HttpServletResponse response) throws IOException;
