@@ -61,6 +61,24 @@ public class UserApiImpl implements UserApi {
         return Result.success(res);
     }
 
+    @ApiOperation(value = "查找用户", notes = "根据id查找用户")
+    @RequestMapping(value = "/getUserByToken", method = RequestMethod.GET)
+    public Result<UserResDTO> getUserByToken() {
+        Long id = BaseContextHandler.getAdminId();
+        if (id == -1){
+            return Result.fail("请登录");
+        }
+
+        UserExample example = new UserExample();
+        example.createCriteria().andIdEqualTo(id);
+        User user = userService.getUnique(example);
+        UserResDTO res = dozerUtils.map(user, UserResDTO.class);
+        if (res.getSelfLaber() != null) {
+            res.setSelfLabers(Arrays.asList(user.getSelfLaber().split(",")));
+        }
+        return Result.success(res);
+    }
+
     @Override
     @IgnoreToken
     @ApiOperation(value = "用户登录", notes = "根据用户登录实体进行登录")
