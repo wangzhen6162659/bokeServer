@@ -15,7 +15,7 @@ spring:
 zuul:
   ratelimit: # 网关限流
     enabled: false  # 本地启动， 无需验证
-  prefix: /api
+  prefix: ${boke.context-path.gate}
   routes:
     admin:
       path: /admin/**
@@ -23,13 +23,14 @@ zuul:
     file:
       path: /file/**
       url: http://localhost:10002/
+  sensitive-headers:
 boke:
   hostname:
     eureka: 127.0.0.1
     gate: 127.0.0.1
   context-path:
     eureka: /boke-eureka
-    gate: /api
+    gate: /bkapi
   port:
     eureka: 8761
     gate: 10002

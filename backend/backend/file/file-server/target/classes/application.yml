@@ -16,7 +16,7 @@ spring:
 boke:
   port:
     eureka: 8761
-    nginx: 10001
+    nginx: 10000
     file: ${server.port}
     gate: 10000
   hostname:
@@ -26,7 +26,7 @@ boke:
   context-path:
     eureka: /boke-eureka
     file: ${server.servlet.context-path}
-    gate: /api
+    gate: /bkapi
 
   mysql:
     file:
@@ -57,9 +57,8 @@ swagger2:
   file-map:
     title: 权限服务
     description: 博客个人权限
-#    base-path: ${boke.context-path.gate}/file
+    base-path: ${boke.context-path.gate}/file
     impl-package: com.file.user.impl
-  contact-name: 中科恒运
-  contact-url: http://www.hengyunsoft.com/
-  contact-email: zkhy@hengyunsoft.com
+  contact-name: wz
+  contact-email: wz6162659@163.com
   host: ${boke.hostname.eureka}:${boke.port.nginx}

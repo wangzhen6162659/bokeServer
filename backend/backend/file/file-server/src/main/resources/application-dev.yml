@@ -24,7 +24,6 @@ boke:
   context-path:
     eureka: /boke-eureka
     file: ${server.servlet.context-path}
-    gate: /api
 
   mysql:
     file:

@@ -24,7 +24,6 @@ boke:
   context-path:
     eureka: /boke-eureka
     admin: ${server.servlet.context-path}
-    gate: /api
   redirect:
       index-url:
       login-url:

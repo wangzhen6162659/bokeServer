@@ -63,13 +63,13 @@ public class PublicApiImpl implements PublicApi {
         Map<String, Object> json = list.get(0);
 
         dto.setUrl(json.get("url").toString());
-        url = new URL("https://cn.bing.com/cnhp/coverstory");
-        json = getUrlWithObject(url);
-        dto.setTitle(json.get("title").toString());
-        dto.setDesc(json.get("para1").toString());
+//        url = new URL("https://cn.bing.com/cnhp/coverstory");
+//        json = getUrlWithObject(url);
+//        dto.setTitle(json.get("title").toString());
+//        dto.setDesc(json.get("para1").toString());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd", Locale.ENGLISH);
-        dto.setCreateTime(sdf.parse(json.get("date").toString()));
+//        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd", Locale.ENGLISH);
+//        dto.setCreateTime(sdf.parse(json.get("date").toString()));
         return dto;
     }
 

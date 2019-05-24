@@ -11,6 +11,8 @@ server:
 spring:
   application:
     name: admin-server
+  messages:
+    basename: local/ValidationMessages
   profiles:
       active: dev
 boke:
@@ -26,7 +28,7 @@ boke:
   context-path:
     eureka: /boke-eureka
     admin: ${server.context-path}
-    gate: /api
+    gate: /bkapi
   mysql:
     admin:
       driver-class-name: com.mysql.jdbc.Driver

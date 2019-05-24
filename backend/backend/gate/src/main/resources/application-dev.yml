@@ -10,7 +10,6 @@ spring:
       max-file-size: 512MB
       max-request-size: 512MB     # Max file size，默认1M
 zuul:
-  prefix: /api
   routes:
     admin:
       path: /admin/**
@@ -19,15 +18,14 @@ zuul:
       path: /file/**
       url: http://${boke.hostname.gate}:10002/
     python:
-      path: /ai/**
-      url: http://localhost:10003/
+      path: /public/**
+      url: http://${boke.hostname.gate}:10003/
 boke:
   hostname:
     eureka: 127.0.0.1
     gate: 127.0.0.1
   context-path:
-    eureka: /boke-eureka
-    gate: /api
+    eureka: /eurka-server
   port:
     eureka: 8761
 eureka:
