@@ -65,8 +65,8 @@ public class PublicApiImpl implements PublicApi {
         dto.setUrl(json.get("url").toString());
 //        url = new URL("https://cn.bing.com/cnhp/coverstory");
 //        json = getUrlWithObject(url);
-//        dto.setTitle(json.get("title").toString());
-//        dto.setDesc(json.get("para1").toString());
+        dto.setTitle(json.get("copyright").toString());
+//        dto.setDesc(json.get("copyright").toString() + "1");
 
 //        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd", Locale.ENGLISH);
 //        dto.setCreateTime(sdf.parse(json.get("date").toString()));
